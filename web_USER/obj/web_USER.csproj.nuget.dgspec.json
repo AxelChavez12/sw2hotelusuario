@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\Desktop\\repositorio\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {}
+    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\Desktop\\repositorio\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {
+    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\repositorio\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
+        "projectUniqueName": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
         "projectName": "web_USER",
-        "projectPath": "C:\\Users\\Dell\\Desktop\\repositorio\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\Desktop\\repositorio\\HotelLuzyLuna\\web_USER\\obj\\",
+        "projectPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,10 +60,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

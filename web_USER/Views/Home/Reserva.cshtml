@@ -1,0 +1,732 @@
+@{
+    Layout="_Layout2";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Reserva</title>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script  src="~/js/site.js"></script>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/estilo.css">
+<style>
+
+</style>
+</head>
+<body>
+
+  <div class="navbarWeb">
+    <nav class="navbar navbar-expand-md navbar-light ">
+        <a href="#" class="navbar-brand"><img src="img/logo2.png" height="28" alt="CoolBrand"></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+            <div class="navbar-nav ml-auto">
+                
+                <a href="#" class="nav-item nav-link active">Inicio</a>
+                <a href="#" class="nav-item nav-link">Habitaciones</a>
+                <a href="#" class="nav-item nav-link">Restaurante</a>
+                <a href="#" class="nav-item nav-link">Contactanos</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="buscar">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label style="color:#FFFf; font-family: 'ABeeZee', sans-serif;font-size:25px;">Horario de atención</label>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">De 12 a.m</label><br>
+                    <label>Check-in : </label>  <input type="date">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">A 12 p.m</label><br>
+                     <label>Check-out : </label>  <input type="date">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="btnReserva">
+                <br>
+                <br>
+             <input type="submit"    value="Buscar habitación">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="contenedorRegistro">
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="habtitulo">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="numberCircle">1</div>
+                    </div>
+
+                    <div class="col-md-10">
+                       <h3>Habitaciones disponibles</h3>
+                    </div>
+                </div>
+            </div>              
+ <div class="contenedorHab">
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'habMatrix')" id="defaultOpen">Habitación matrimonial</button>
+      <button class="tablinks" onclick="openCity(event, 'habMatrixEx')">Habitación matrimonial exclusiva</button>
+    </div>
+
+
+
+    <div id="habMatrix" class="tabcontent">
+    <div class="parte1">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="img/hab1.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="hab"> Habitación matrimonial</div>
+                </div>
+                <div class="col-md-12">
+                    <div class="icons">
+                     <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                     </div> 
+                </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio"><span>S/.</span> 120</div>
+                    <br>
+                   
+                </div>
+             </div>
+        </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-6">
+                
+                
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-4">
+                           
+                                <input type="radio" name="habitacion" value="202"> <label> 202</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="203"> <label> 203</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="204"> <label> 204</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="205"> <label> 205</label>
+                                <br>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            
+                                <input type="radio" name="habitacion" value="206"> <label> 206</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="209"> <label> 209</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="210"> <label> 210</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="211"> <label> 211</label>
+                                <br>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+            
+                
+                    <div class="piso">
+                         <h4>Piso 3</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                                <input type="radio" name="habitacion" value="302"> <label> 302</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="303"> <label> 303</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="304"> <label> 304</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="305"> <label> 305</label>
+                                <br>
+                            
+                        </div>
+                        <div class="col-md-4">
+                          
+                                <input type="radio" name="habitacion" value="306"> <label>   306</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="307"> <label> 307</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="308"> <label>   308</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="309"> <label> 309</label>
+                                <br>
+                            
+                        </div>
+                        <div class="col-md-4">
+                           
+                                <input type="radio" name="habitacion" value="310"> <label> 310</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="311"> <label> 311</label>
+                                <br>
+                                
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                
+               
+                    <div class="piso">
+                         <h4>Piso 4</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-4">
+                                <input type="radio" name="habitacion" value="402"> <label> 402</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="403"> <label> 403</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="404"> <label> 404</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="405"> <label> 405</label>
+                                <br>
+                            
+                        </div>
+                        <div class="col-md-4">
+                                <input type="radio" name="habitacion" value="406"> <label> 406</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="407"> <label> 407</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="408"> <label> 408</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="409"> <label> 409</label>
+                                <br>
+                        </div>
+                        <div class="col-md-4">
+                          
+                                <input type="radio" name="habitacion" value="410"> <label> 410</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="411"> <label> 411</label>
+                                <br>
+                                
+                            
+                        </div>
+                    </div>    
+                </div>    
+            </div>
+            <div class="col-md-6">
+                
+                    <div class="piso">
+                         <h4>Piso 5</h4>
+                    </div>
+                   <div class="checkbox">
+                <div class="row">
+                   
+                        <div class="col-md-4">
+                            
+                                <input type="radio" name="habitacion" value="505"> <label> 505</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="506"> <label> 506</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="507"> <label> 507</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="508"> <label> 508</label>
+                                <br>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            
+                                <input type="radio" name="habitacion" value="509"> <label> 509</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="510"> <label> 510</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="511"> <label> 511</label>
+                                <br>
+                                
+                            
+                       </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>    
+            </div>
+       </div> 
+    </div>
+     </div>
+    </div>
+
+    <div id="habMatrixEx" class="tabcontent">
+      <div class="parte1">
+       <div class="row" >
+            <div class="col-md-3">
+                <img src="img/hab4.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="hab"> Habitación matrimonial con jacuzzi</div>
+                </div>
+                <div class="col-md-12">
+                    <div class="icons">
+                     <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                     </div> 
+                </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                    Horas:
+                    <div class="handle-counter" id="handleCounter2">
+                        <button class="counter-minus btn btn-primary">-</button>
+                        <input type="text" value="1">
+                        <button class="counter-plus btn btn-primary">+</button>
+                    </div>
+        <br>
+                </div>
+             </div>
+        </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-12">
+                           
+                                <input type="radio" name="habitacion" value="201"> <label> 201</label>
+                                <br>
+                               
+                            
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                
+               
+                    <div class="piso">
+                         <h4>Piso 3</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                                <input type="radio" name="habitacion" value="301"> <label> 303</label>
+                                <br>
+                               
+                            
+                        </div>
+                       
+                       
+                    </div>
+                </div>        
+            </div>
+            <div class="col-md-4">
+                
+                
+                    <div class="piso">
+                         <h4>Piso 4</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <input type="radio" name="habitacion" value="401"> <label> 401</label>
+                                <br>
+                                
+                            
+                        </div>
+                        
+                    </div>    
+                </div>    
+            </div>
+           
+       </div> 
+    </div>
+   </div>
+
+<div class="parte2" >
+    <div class="row">
+            <div class="col-md-3">
+                <img src="img/hab2.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+                <div class="row"> 
+                        <div class="col-md-12">
+                            <div class="hab"> Habitación matrimonial con sauna</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="icons">
+                             <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                             </div> 
+                        </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                    Horas:
+                    <div class="handle-counter" id="handleCounter">
+                        <button class="counter-minus btn btn-primary">-</button>
+                        <input type="text" value="1">
+                        <button class="counter-plus btn btn-primary">+</button>
+                    </div>
+                </div>
+             </div>
+    </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+               
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-12">
+                           
+                                <input type="radio" name="habitacion" value="207"> <label> 207</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="208"> <label> 208</label>
+                                <br>
+                               
+                            
+                        </div>
+                       
+                    </div>
+                </div>
+            </div> 
+       </div> 
+</div>
+
+    
+    </div>
+
+<div class="parte1">
+   <div class="row">
+            <div class="col-md-3">
+                <img src="img/hab3.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+                <div class="row"> 
+                        <div class="col-md-12">
+                            <div class="hab"> Habitación matrimonial con sauna y jacuzzi</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="icons">
+                             <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                             </div> 
+                        </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                    Horas:
+                  <div class="handle-counter" id="handleCounter3">
+                        <button class="counter-minus btn btn-primary">-</button>
+                        <input type="text" value="1">
+                        <button class="counter-plus btn btn-primary">+</button>
+                    </div>
+                </div>
+             </div>
+    </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+               
+                    <div class="piso">
+                         <h4>Piso 5</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="row">
+                        <div class="col-md-12">
+                           
+                                <input type="radio" name="habitacion" value="501"> <label> 501</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="502"> <label> 502</label>
+                                <br>
+                                <input type="radio" name="habitacion" value="504"> <label> 504</label>
+                                <br>
+                               
+                            
+                        </div>
+                       
+                    </div>
+                </div>
+            </div> 
+       </div> 
+
+</div>
+    </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-md-5">
+            
+            <div class="formhuesped">
+                <div class="row">
+
+                    <div clclass="col-md-4">
+                        <div class="numberCircle">2</div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Datos del huésped</h3>
+                        <p>Complete los siguientes campos</p>
+                    </div>
+                 </div>
+                <form>
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                
+                                <select class="form-control">
+                                    <option value="">DNI</option>
+                                    <option value="">Pasaporte</option>
+                                    <option value="ruc">Ruc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ruc box">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre del contribuyente</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Dirección del contribuyente</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombres</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Apellidos</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input type="email" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                *opcional
+                                <select class="form-control">
+                                    <option value="" disabled="" selected="">Motivo de viaje</option>
+                                    <option value="">**********************</option>
+                                    <option value="ruc">***************</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+<hr>
+            <div class="formhuesped">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="numberCircle">3</div>
+                    </div>
+
+                    <div class="col-md-10">
+                       <h3>Forma de pago</h3>
+                       <p>Elija de que forma va a pagar</p> 
+                    </div>
+                </div>
+
+                
+
+                <div class="container" style="padding:40px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        Total a pagar:
+                    </div>
+                    <div class="col-md-8">
+                        $$$
+                    </div>
+                    <div class="col-md-4">
+                            <input type="radio" name="pago" value="Efectivo"> <label> Efectivo</label>
+                    </div>
+                    <div class="col-md-8">
+                            <input type="radio" name="pago" value="Deposito"> <label>Por depósito</label>
+                        <div class="Deposito box">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label>N° Cuenta del hotel:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <label> 1-445-779</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <label>Correo: </label>
+                                </div>
+                                <div class="col-md-7">
+                                    <label> camiel@gmail.com</label>
+                                </div>
+                             </div>
+                        </div>
+                    </div>   
+                </div>
+
+            </div>
+            </div>
+            <div class="btnReserva">
+             <input type="submit"    value="Realizar reserva">
+            </div>
+        </div>
+   
+
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="~/js/handlerCounter.js"></script>
+ <script>
+        $(function ($) {
+            var options = {
+                minimum: 1,
+                maximize: 10,
+                onChange: valChanged,
+                onMinimum: function(e) {
+                    console.log('reached minimum: '+e)
+                },
+                onMaximize: function(e) {
+                    console.log('reached maximize'+e)
+                }
+            }
+            $('#handleCounter').handleCounter(options)
+             $('#handleCounter2').handleCounter(options)
+            $('#handleCounter3').handleCounter(options)
+          
+        })
+        function valChanged(d) {
+
+        }
+    </script>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html> 

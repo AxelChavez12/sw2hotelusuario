@@ -15,6 +15,11 @@ namespace web_USER.Controllers
             return View();
         }
 
+        public IActionResult Reserva()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

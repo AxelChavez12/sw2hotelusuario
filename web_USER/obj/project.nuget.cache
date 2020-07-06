@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s9SO4GOUAeI75yjCTWk6sdMg32r8iGjeZawdywJ3M8tFZjLabh+TnIq3mxedO63cY8EG5WHLbjpqOZhSRg/fZg==",
+  "dgSpecHash": "DTNKwBpGaYuPVLbaQ50FuOhpWSTJOasgQI3kXZRXFi57CxWNLbvm4h7f/rh3NbtJUliUt8diacZnu/vMMmsnnw==",
   "success": true,
-  "projectFilePath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
+  "projectFilePath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\web_USER.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

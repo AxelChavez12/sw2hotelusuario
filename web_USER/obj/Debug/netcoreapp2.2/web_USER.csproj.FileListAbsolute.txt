@@ -33,3 +33,4 @@ D:\Documentos\Individual\HotelLuzyLuna\web_USER\obj\Debug\netcoreapp2.2\web_USER
 D:\Documentos\Individual\HotelLuzyLuna\web_USER\obj\Debug\netcoreapp2.2\web_USER.pdb
 D:\Documentos\Individual\HotelLuzyLuna\web_USER\obj\Debug\netcoreapp2.2\web_USER.genruntimeconfig.cache
 D:\Documentos\Individual\HotelLuzyLuna\web_USER\obj\Debug\netcoreapp2.2\web_USER.csproj.CopyComplete
+D:\Documentos\Individual\HotelLuzyLuna\web_User\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout2.cshtml.g.cs

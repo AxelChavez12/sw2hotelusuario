@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {}
+    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\web_USER.csproj": {}
   },
   "projects": {
-    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj": {
+    "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\web_USER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
+        "projectUniqueName": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\web_USER.csproj",
         "projectName": "web_USER",
-        "projectPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\web_USER.csproj",
+        "projectPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\web_USER.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_USER\\obj\\",
+        "outputPath": "D:\\Documentos\\Individual\\HotelLuzyLuna\\web_User\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

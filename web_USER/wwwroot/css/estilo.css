@@ -86,6 +86,40 @@ p{
   color:#8D908C;
 }
 
+input .form-control:focus ~ label, 
+input .form-control:valid ~ label{
+  top:-20px;
+  font-size:17px;
+  font-weight: 700;
+  color:#333;
+  font-weight: normal;
+}
+input .form-control:valid ~ label:before{
+    content: "✓   "
+}
+input .form-control:focus:invalid ~ label,
+input .form-control:invalid ~ label{
+  top:-20px;
+  font-size:17px;
+  color: #E34724;
+  font-weight: normal;
+}
+input .form-control:focus:invalid ~ label:after{
+    content: "Formato no válido o campo vacío";
+    margin: 0 5px;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #E34724;
+    border-radius: 4px;
+    font-weight: normal;
+}
+input .form-control:focus:invalid:required,
+input .form-control:invalid:required{
+  outline: none;
+  box-shadow: none;
+}
+
 .imagen1{
   background: url("hab1.jpeg");
     background-repeat: no-repeat;

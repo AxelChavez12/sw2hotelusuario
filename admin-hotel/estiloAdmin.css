@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Allerta+Stencil&family=Blinker:wght@600&family=Caesar+Dressing&family=Charmonman&family=Cinzel+Decorative&family=Crushed&family=Ewert&family=Monoton&family=PT+Serif&family=Prompt:wght@300&family=Quicksand&family=Sirin+Stencil&family=Six+Caps&family=Spectral+SC:wght@200&family=Stardos+Stencil&family=Tenali+Ramakrishna&family=Tenor+Sans&display=swap');
+
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color:   #f9f9f9;
+}
+
+
+
+ input[type=text], input[type=password] , input[type=email], input[type=date], input[type=number],input[type=time], select{
+ 
+   display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  color:#8D908C;
+}
+
+ .form-group{
+  padding:0px;
+  font-size:14px;
+ }
+ .form-group label{
+  padding-left:11px;
+  margin-bottom:0px;
+ }
+ .form-group input, select{
+  background-color:white;
+  margin:0px 0px 5px 5px;
+  display: inline-block;
+  border: none;
+  color:#8D908C;
+ }
+ .btnReserva{
+  
+  color:black;
+  border:0px;
+  border-radius: 3px;
+
+  font-family: 'Allerta Stencil', sans-serif;
+  text-align:center;
+
+ }
+ .btnReserva input{
+    background-color: #ffcd48;
+    padding:10px 25px 10px 25px;
+    border:0;
+ }
+
+ .btnReserva input:hover{
+    background-color: #FFC529;
+    padding:10px 25px 10px 25px;
+    border:0;
+ }
+
+
+.box-details{
+  padding:20px 30px 20px 20px;
+  background-color: #E4F5DE;
+  margin: 0px 10px 10px 10px;
+
+}
+.titulo{
+  padding:20px 20px 10px 20px;
+  background-color: #9EE8B9;
+  margin: 10px 10px 0px 10px;
+
+}
+.contenedorAdmin h3{
+  font-family: 'Prompt', sans-serif;
+  color:#545553;
+}
+.contenedorAdmin{
+    margin:50px;
+  
+}
+

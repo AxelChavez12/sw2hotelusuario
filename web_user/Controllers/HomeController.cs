@@ -81,7 +81,57 @@ namespace hotel.Controllers
         }
 
 
-       
+         [HttpPost]
+        public IActionResult Registrar(Reserva r){
+
+            string s = r.ape;
+            string apepat, apemat,hab1,hab2;
+            
+            int location = s.IndexOf(" ");
+            if(location>0){
+                apepat=s.Substring(0,location);
+                apemat=s.Substring(location+1);
+            }else{
+                apepat=r.ape;
+                apemat=null;
+            }
+            string habs=r.habitaciones;
+            int l= habs.IndexOf(",");
+            if(l>0){
+                hab1=habs.Substring(0,l);
+                hab2=habs.Substring(l+1);
+            }else{
+                hab1=r.habitaciones;
+                hab2=null;
+            }
+
+            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,r.motivo,r.fecha,r.correo,apemat),conn);
+                    var row = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                conn.Open();
+                NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito','{2}')",r.checkin,r.checkout,r.numdoc),conn);
+                    var row2 = cmd2.ExecuteNonQuery();
+                conn.Close();
+
+                conn.Open();
+                NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'pendiente')",hab1),conn);
+                    var row3 = cmd3.ExecuteNonQuery();
+                conn.Close();
+
+                if(l>0){
+                    conn.Open();
+                NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'pendiente')",hab2),conn);
+                    var row4 = cmd4.ExecuteNonQuery();
+                conn.Close();
+                }
+
+
+
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,654 @@
+@model Reserva
+<script languaje="javascript">
+var num_opciones = 2;
+var numcheckbox = 0;
+function habilitaDeshabilita(esto)
+
+{
+   if (esto.checked){
+	if (numcheckbox >= num_opciones) {
+		esto.checked = false;
+		alert ("Solo se puede máximo dos habitaciones");
+	} else {
+		numcheckbox++;
+	}
+} else {
+	numcheckbox--;
+}
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<div class="buscar">
+    <form method="POST" asp-controller="Home" asp-action="Reserva" >
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label style="color:#FFFf; font-family: 'ABeeZee', sans-serif;font-size:25px;">Horario de atención</label>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">De 12 a.m</label><br>
+                    <label>Check-in : </label>  <input type="date" asp-for="checkin">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">A 12 p.m</label><br>
+                     <label>Check-out : </label>  <input type="date" asp-for="checkout">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="btnReserva">
+                <br>
+                <br>
+                <input type="submit"   value="Buscar habitación">
+            </div>
+        </div>
+    </div>
+    </form>
+</div>-->
+
+
+<div class="contenedorRegistro">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+
+            <div class="habtitulo">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="numberCircle">1</div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <h3>Habitaciones disponibles</h3>
+                
+                    </div>
+                </div>
+            </div>              
+ <div class="contenedorHab">
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'habMatrix')" id="defaultOpen">Habitación matrimonial</button>
+      <button class="tablinks" onclick="openCity(event, 'habMatrixEx')">Habitación matrimonial exclusiva</button>
+    </div>
+
+
+
+    <div id="habMatrix" class="tabcontent">
+    <div class="parte1">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="~/img/hab1.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="hab"> Habitación matrimonial</div>
+                </div>
+                <div class="col-md-12">
+                    <div class="icons">
+                     <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                     </div> 
+                </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio"><span>S/.</span> 120</div>
+                    <br>
+                   
+                </div>
+             </div>
+        </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-6">
+                
+                
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo1!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo1 ){
+                                if(item.numhab<300 && item.numhab>=200){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                          
+                </div>
+            </div>
+            <div class="col-md-6">
+            
+                
+                    <div class="piso">
+                         <h4>Piso 3</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo1!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo1 ){
+                                if(item.numhab<400 && item.numhab>=300){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                
+               
+                    <div class="piso">
+                         <h4>Piso 4</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo1!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo1 ){
+                                if(item.numhab<500 && item.numhab>=400){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>   
+                </div>    
+            </div>
+            <div class="col-md-6">
+                
+                    <div class="piso">
+                         <h4>Piso 5</h4>
+                    </div>
+                   <div class="checkbox">
+                <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo1!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo1 ){
+                                if(item.numhab<600 && item.numhab>=500){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>    
+            </div>
+       </div> 
+    </div>
+     </div>
+    </div>
+
+    <div id="habMatrixEx" class="tabcontent">
+      <div class="parte1">
+       <div class="row" >
+            <div class="col-md-3">
+                <img src="~/img/hab4.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="hab"> Habitación matrimonial con jacuzzi</div>
+                </div>
+                <div class="col-md-12">
+                    <div class="icons">
+                     <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                     </div> 
+                </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                    
+        <br>
+                </div>
+             </div>
+        </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo2!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo2 ){
+                                if(item.numhab<300 && item.numhab>=200){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                
+               
+                    <div class="piso">
+                         <h4>Piso 3</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo2!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo2 ){
+                                if(item.numhab<400 && item.numhab>=300){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>        
+            </div>
+            <div class="col-md-4">
+                
+                
+                    <div class="piso">
+                         <h4>Piso 4</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo2!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo1 ){
+                                if(item.numhab<500 && item.numhab>=400){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>    
+            </div>
+           
+       </div> 
+    </div>
+   </div>
+
+<div class="parte2" >
+    <div class="row">
+            <div class="col-md-3">
+                <img src="~/img/hab2.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+                <div class="row"> 
+                        <div class="col-md-12">
+                            <div class="hab"> Habitación matrimonial con sauna</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="icons">
+                             <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                             </div> 
+                        </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                   
+                </div>
+             </div>
+    </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+               
+                    <div class="piso">
+                         <h4>Piso 2</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo3!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo3 ){
+                                if(item.numhab<300 && item.numhab>=200){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>
+            </div> 
+       </div> 
+</div>
+
+    
+    </div>
+
+<div class="parte1">
+   <div class="row">
+            <div class="col-md-3">
+                <img src="~/img/hab3.jpeg" width="160" height="170">
+            </div>
+            <div class="col-md-6">
+              
+            
+                <div class="row"> 
+                        <div class="col-md-12">
+                            <div class="hab"> Habitación matrimonial con sauna y jacuzzi</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="icons">
+                             <i class="fa fa-wifi" ></i>  <i class="fa">&#xf236;</i>  <i class="fa fa-hdd-o" aria-hidden="true" ></i>  <i class="fa fa-bath" aria-hidden="true" ></i>
+                             </div> 
+                        </div> 
+               </div> 
+            </div>      
+            <div class="col-md-3">
+                <div class="zonaPrecio">
+                    <div class="precio">S/. 120</div>
+                    <br>
+                   
+                </div>
+             </div>
+    </div>  
+
+   
+
+        <div class="pisos">
+          <div class="row">
+            <div class="col-md-4">
+               
+               
+                    <div class="piso">
+                         <h4>Piso 5</h4>
+                    </div>
+                   <div class="checkbox">
+                    <div class="boxhab">
+                   
+                       
+                                @if (ViewBag.Tipo4!=null)
+                        {
+                           
+                            foreach(var item in (List<Habitacion>) ViewBag.Tipo4 ){
+                                if(item.numhab<600 && item.numhab>=500){
+
+                                    
+                                    <input type="checkbox" name="habitacion" value="@item.numhab"  onchange="habilitaDeshabilita(this)"> <label> @item.numhab</label>
+                                    <br>
+                                }
+                            }
+                        }
+                      
+                    
+                    </div>
+                </div>
+            </div> 
+       </div> 
+
+</div>
+    </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-md-5 col-sm-12 col-xs-12">
+            <form method="POST" asp-controller="Home" asp-action="Registrar">
+            <div class="formhuesped">
+                <div class="row">
+
+                    <div clclass="col-md-4">
+                        <div class="numberCircle">2</div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Datos del huésped</h3>
+                        <p>Complete los siguientes campos</p>
+                    </div>
+                 </div>
+                
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                
+                                <select class="form-control" asp-for="tipodoc">
+                                    <option value="1">DNI</option>
+                                    <option value="2">Pasaporte</option>
+                                    <option value="3">Ruc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                
+                                <input type="text" class="form-control" asp-for="numdoc">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="hidden" id="respuesta" asp-for="habitaciones">
+                                <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
+                                <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
+                                <label>Nombres</label>
+                                <input type="text" class="form-control" asp-for="nom">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Apellidos</label>
+                                <input type="text" class="form-control" asp-for="ape">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input type="email" class="form-control" asp-for="correo">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Fecha de nacimiento</label>
+                                <input type="date" class="form-control" asp-for="fecha">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                *opcional
+                                <select class="form-control" asp-for="motivo">
+                                    <option value="" disabled="" selected="">Motivo de viaje</option>
+                                    <option value="Vacaciones">Vacaciones</option>
+                                    <option value="Visitas a familiares">Visitas a familiares</option>
+                                    <option value="Educación">Educación</option>
+                                    <option value="Salud/atención medica">Salud/atención medica</option>
+                                    <option value="Trabajo">Trabajo</option>
+                                </select>
+                            </div>
+                        </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="col-md-2">
+                        <div class="numberCircle">3</div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <h3>Forma de pago</h3>
+                        <p>Elija de que forma va a pagar</p> 
+                    
+                    </div>
+                    <div class="col-md-4">
+                            <input type="radio" asp-for="tippago" value="Efectivo"> <label> Efectivo</label>
+                    </div>
+                    <div class="col-md-8">
+                            <input type="radio" tippago="tippago" value="Deposito"> <label>Por depósito</label>
+                        <div class="Deposito box">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label>N° Cuenta del hotel:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <label> 1-445-779</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <label>Correo: </label>
+                                </div>
+                                <div class="col-md-7">
+                                    <label> camiel@gmail.com</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="btnReserva">
+                    <input type="submit"    value="Realizar reserva">
+                </div>
+    </form>          
+            </div>
+
+
+        
+                
+
+
+</div>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+ 
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+<script>
+
+$(document).ready(function() {
+
+  $('[name="habitacion"]').click(function() {
+      
+    var arr = $('[name="habitacion"]:checked').map(function(){
+      return this.value;
+    }).get();
+    
+    var str = arr;
+    
+
+    
+  document.getElementById("respuesta").value=str;
+  });
+
+});
+</script>

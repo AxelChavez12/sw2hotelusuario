@@ -1,0 +1,39 @@
+﻿@model Reserva
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="buscar">
+    <form method="POST" asp-controller="Home" asp-action="Reserva" >
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label style="color:#FFFf; font-family: 'ABeeZee', sans-serif;font-size:25px;">Horario de atención</label>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">De 12 a.m</label><br>
+                    <label>Check-in : </label>  <input type="date" asp-for="checkin">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">A 12 p.m</label><br>
+                     <label>Check-out : </label>  <input type="date" asp-for="checkout">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="btnReserva">
+                <br>
+                <br>
+             <input type="submit"   value="Buscar habitación">
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+

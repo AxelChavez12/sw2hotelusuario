@@ -23,6 +23,11 @@ namespace web_admin.Controllers
             return View();
         }
 
+        public IActionResult Ventas()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

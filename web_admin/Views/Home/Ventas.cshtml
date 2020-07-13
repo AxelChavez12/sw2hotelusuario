@@ -1,0 +1,213 @@
+ <main class="main col">
+                <div class="row">
+                    <div class="columna col-lg-6">
+                        <div class="widget nueva_entrada">
+                            <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
+
+                        </div>
+
+                        <div class="columna col-lg-7">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#fm-modal">Consultar Catalogo</button>
+                            <div class="modal fade" id="fm-modal" tabindex="-1" role="dialog" aria-labelledby="fm-modal" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="">Catalogo de Productos</h5>
+                                            <button class="close" data-dismiss="modal" aria-label="Cerrar">
+										<span aria-hidden="true">&times;</span>
+									</button>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <form action="">
+                                                <table class="table table-sm table-hover table-bordered table-responsive-lg table-active">
+                                                    <div class="row mb-3">
+                                                        <div class="col-7">
+                                                            <input type="text" class="form-control" placeholder="Escriba el Producto" name="cantidad" id="cantidad">
+
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <button class="btn btn-primary" data-toggle="modal" data-target="#fm-modal">Buscar Producto</button>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th>Tipo</th>
+                                                            <th>Nombre</th>
+                                                            <th>Precio Venta</th>
+                                                            <th>Cantidad</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tr class="">
+                                                        <td>Bebida</td>
+                                                        <td>Coca Cola</td>
+                                                        <td>2.50</td>
+                                                        <td> <input type="text" class="form-control" placeholder="cantidad" name="cantidad" id="cantidad">
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr class="">
+                                                        <td>Pickeos</td>
+                                                        <td>Pack Mediano</td>
+                                                        <td>7.20</td>
+                                                        <td> <input type="text" class="form-control" placeholder="cantidad" name="cantidad" id="cantidad">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Vino</td>
+                                                        <td>Amore Ica</td>
+                                                        <td>26.00</td>
+                                                        <td> <input type="text" class="form-control" placeholder="cantidad" name="cantidad" id="cantidad">
+                                                        </td>
+                                                    </tr>
+
+
+                                                </table>
+                                                <button class="btn btn-primary" data-toggle="modal" data-target="#fm-modal">Agregar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="columna col-lg-5">
+                        <div class="card">
+                            <div class="card-header">
+                                Datos de Habitación
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <span class="input-group-text">N° de Habitación</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <span class="input-group-text">Hora del Pedido</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <span class="input-group-text">Nombre del Cliente</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <span class="input-group-text">Importe a Pagar</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <p>Estado del Pago:</p>
+
+                                </div>
+                                <div class="row">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+										<input type="radio" name="EstadoPago" id="falta" value="falta"> Falta Pagar
+									</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+										<input type="radio" name="EstadoPago" id="cancelado" value="cancelado"> Cancelado
+									</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <button class="btn btn-primary">Grabar</button>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="row mt-5">
+                    <div class="columna col-lg-8">
+                        <table class="table table-sm table-hover table-bordered table-responsive-lg table-active">
+                            <div class="row mb-3">
+
+
+                            </div>
+
+
+                            <thead>
+
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Venta</th>
+                                    <th>Sub Total</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+
+                            <tr class="">
+                                <td>Bebida</td>
+                                <td>Coca Cola</td>
+                                <td>4</td>
+                                <td>2.50</td>
+                                <td>10.00</td>
+                                <td> <a href="#"><i class="icon-edit"></i></a></td>
+                                <td> <a href="#"><i class="icon-logout"></i></a></td>
+                            </tr>
+                            </tr>
+
+
+                            <tr class="">
+                                <td>Bebida</td>
+                                <td>Coca Cola</td>
+                                <td>4</td>
+                                <td>2.50</td>
+                                <td>10.00</td>
+                                <td> <a href="#"><i class="icon-edit"></i></a></td>
+                                <td> <a href="#"><i class="icon-logout"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>Bebida</td>
+                                <td>Coca Cola</td>
+                                <td>4</td>
+                                <td>2.50</td>
+                                <td>10.00</td>
+                                <td> <a href="#"><i class="icon-edit"></i></a></td>
+                                <td> <a href="#"><i class="icon-logout"></i></a></td>
+                            </tr>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </main>

@@ -20,16 +20,15 @@
 					<a href="#"><i class="icon-home"></i><span>Check-In</span></a>
 					<a href="#"><i class="icon-doc-text"></i><span>Huesped</span></a>
 					<a href="#"><i class="icon-users"></i><span>Productos</span></a>
-					<a href="ventas.html"><i class="icon-users"></i><span>Ventas</span></a>
+					<a asp-controller="Home" asp-action="Ventas"><i class="icon-users"></i><span>Ventas</span></a>
 					<a href="#"><i class="icon-logout"></i><span>Check-Out</span></a>
 					<a href="#"><i class="icon-logout"></i><span>Salir</span></a>
 				</nav>
 			</div>
-    <div class="container">
-        <main role="main" class="pb-3">
+   
+        
             @RenderBody()
-        </main>
-    </div>
+     
 
    </div>
 	</div>

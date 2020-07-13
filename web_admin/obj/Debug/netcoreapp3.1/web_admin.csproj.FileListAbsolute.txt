@@ -35,3 +35,4 @@ D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\we
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.pdb
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.genruntimeconfig.cache
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.csproj.CopyComplete
+D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Home\Ventas.cshtml.g.cs

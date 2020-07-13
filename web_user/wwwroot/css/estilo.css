@@ -254,7 +254,13 @@ body, html {
     padding:10px 25px 10px 25px;
     border:0;
  }
-
+ .btnReserva a{
+  background-color: #ffcd48;
+  padding:10px 25px 10px 25px;
+  border:0;
+  color: #414141;
+  text-decoration: none;
+}
  .btnReserva input:hover{
     background-color: #FFC529;
     padding:10px 25px 10px 25px;

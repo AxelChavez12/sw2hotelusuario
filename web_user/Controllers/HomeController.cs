@@ -130,11 +130,44 @@ namespace hotel.Controllers
 
 
 
-            return RedirectToAction("Datos" , r);
+            return RedirectToAction("Datos");
         }
 
-        public IActionResult Datos(Reserva r){
+        public IActionResult Datos(){
+            List<Reserva> rs= new List<Reserva>();
+            
+            double monto;
+            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, precio, concat( c.nomcli,' ',c.apellpater,' ',c.apemater) ,to_char(r.checkin, 'DD/MM/YYYY') ,to_char(r.checkout, 'DD/MM/YYYY'),  th.nomtiphab from habitacion h, tipohabitacion th,reservahab rh, reservahabitacion r,cliente c where th.codtiphab=h.tiphabcod and h.numhab=rh.numhab and r.codreserva=rh.codreserva and r.clidocres=c.numdoccli and r.codreserva=(select max(codreserva)from reservahabitacion)"), conn);
+                    NpgsqlDataReader dr = cmd.ExecuteReader();
+                        while(dr.Read())
+                        {
+                            Reserva r= new Reserva();
+                            r.habitaciones=dr.GetValue(0).ToString();
+                            r.precio=dr.GetDouble(1);
+                            r.nom=dr.GetValue(2).ToString();
+                            r.checkin=dr.GetValue(3).ToString();
+                            r.checkout=dr.GetValue(4).ToString();
+                            r.ape=dr.GetValue(5).ToString();
+                            ViewBag.Reserva=r;
+                            rs.Add(r);
 
+                        }
+                dr.Close();
+                conn.Close();
+            
+            if(rs.Count()>1){
+                monto=rs[0].precio + rs[1].precio;
+            
+                ViewBag.hab1= rs[0].habitaciones;
+                ViewBag.tiphab2= rs[0].ape;
+                ViewBag.precio= rs[0].precio;
+            }else{
+                monto=rs[0].precio;
+            }
+            
+            ViewBag.Monto=monto;
             
             
             return View();

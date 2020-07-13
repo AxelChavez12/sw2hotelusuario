@@ -20,5 +20,7 @@ namespace web_user.Models
 
         public string checkout{get;set;}
         public string habitaciones { get; set; }
+
+        public double precio{get;set;}
     }
 }

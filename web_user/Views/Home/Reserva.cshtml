@@ -18,8 +18,8 @@ function habilitaDeshabilita(esto)
 }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!--<div class="buscar">
-    <form method="POST" asp-controller="Home" asp-action="Reserva" >
+<div class="buscar">
+    <form method="POST" id="formBuscar" asp-controller="Home" asp-action="Reserva" >
     <div class="row">
         <div class="col-md-8">
 
@@ -49,7 +49,7 @@ function habilitaDeshabilita(esto)
         </div>
     </div>
     </form>
-</div>-->
+</div>
 
 
 <div class="contenedorRegistro">
@@ -478,7 +478,7 @@ function habilitaDeshabilita(esto)
 </div>
         </div>
         <div class="col-md-5 col-sm-12 col-xs-12">
-            <form method="POST" asp-controller="Home" asp-action="Registrar">
+            <form method="POST" id="formRegistrar" asp-controller="Home" asp-action="Registrar">
             <div class="formhuesped">
                 <div class="row">
 

@@ -35,7 +35,7 @@ namespace hotel.Controllers
             List<Habitacion> habs= new List<Habitacion>();
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, h.ubicacionhab, h.tiphabcod from reservahabitacion r, reservahab hab, habitacion h where hab.numhab=h.numhab and r.codreserva=hab.codreserva and r.checkin not between '{0}' and '{1}'  and r.checkout not between '{0}' and '{1}' union select h.numhab, h.ubicacionhab, h.tiphabcod  from reservahab hab, reservahabitacion r, habitacion h where h.numhab!=hab.numhab",f.checkin,f.checkout), conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( " select h.numhab, h.ubicacionhab, h.tiphabcod from reservahabitacion r, reservahab hab, habitacion h where hab.numhab=h.numhab and r.codreserva=hab.codreserva and r.checkin not between '{0}' and '{1}'  and r.checkout not between '{0}' and '{1}' union( (select  h.numhab, h.ubicacionhab, h.tiphabcod  from  habitacion h  ) except (select  h.numhab, h.ubicacionhab, h.tiphabcod  from reservahab hab, habitacion h where h.numhab=hab.numhab) ) order by numhab",f.checkin,f.checkout), conn);
                     NpgsqlDataReader dr = cmd.ExecuteReader();
                         while(dr.Read())
                         {
@@ -130,7 +130,14 @@ namespace hotel.Controllers
 
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Datos" , r);
+        }
+
+        public IActionResult Datos(Reserva r){
+
+            
+            
+            return View();
         }
         public IActionResult Privacy()
         {

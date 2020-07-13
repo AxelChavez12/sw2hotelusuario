@@ -20546,6 +20546,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Escritorio\\Nueva carpetaho\\HotelLuzyLuna\\web_user\\Views\\Home\\Datos.cshtml",
+      "TargetPath": "Views\\Home\\Datos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Escritorio\\Nueva carpetaho\\HotelLuzyLuna\\web_user\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

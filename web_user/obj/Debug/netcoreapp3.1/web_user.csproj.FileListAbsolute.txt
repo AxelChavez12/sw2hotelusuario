@@ -37,3 +37,4 @@ D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\sta
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.dll
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.pdb
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.genruntimeconfig.cache
+D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Datos.cshtml.g.cs

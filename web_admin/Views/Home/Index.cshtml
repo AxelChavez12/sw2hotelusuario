@@ -1,9 +1,10 @@
-﻿<main class="main col">
+﻿@model Cliente
+<main class="main col">
                 <div class="row">
                     <div class="columna col-lg-7">
                         <div class="widget nueva_entrada">
                             <h3 class="titulo">Inicio Luz y Luna</h3>
-                            <button class="btn btn-primary">Verificar Datos</button>
+                        
 
 
                         </div>
@@ -28,22 +29,28 @@
                                 Datos de Huesped
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="POST" id="Cliente" asp-controller="Home" asp-action="Index">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
 
-                                                <select class="form-control">
-											<option value="">DNI</option>
-											<option value="">Pasaporte</option>
-											<option value="ruc">Ruc</option>
+                                                <select class="form-control" asp-for="tipodoc">
+											<option value="1">DNI</option>
+											<option value="2">Pasaporte</option>
+											<option value="3">Ruc</option>
 										</select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
 
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" asp-for="numdocli">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <input type="submit" class="btn btn-primary" value="Verificar Datos">
                                             </div>
                                         </div>
                                     </div>
@@ -54,13 +61,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombres</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" value="@ViewBag.nomcli">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellidos</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" value="@ViewBag.apellpater">
                                             </div>
                                         </div>
                                     </div>
@@ -70,21 +77,21 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Teléfono</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" value="@ViewBag.tele">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Correo</label>
-                                                <input type="email" class="form-control">
+                                                <input type="email" class="form-control" value="@ViewBag.correocli">
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <span class="input-group-text">Motivo de Viaje</span>
                                         </div>
-                                        <div class="col-6">
-                                            <input type="text" name="" id="" class="form-control">
+                                        <div class="col-8">
+                                            <input type="text" name="" value="@ViewBag.moti" class="form-control">
                                         </div>
                                     </div>
                                 </form>
@@ -146,7 +153,7 @@
 
 
                     <div class="columna col-lg-6">
-
+                    
                         <div class="card">
                             <div class="card-header">
                                 Datos Acompañante
@@ -155,22 +162,22 @@
 
 
 
-                                <form>
+                                <form method="POST" id="Acompanante" asp-controller="Home" asp-action="Registrar">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-
-                                                <select class="form-control">
-													<option value="">DNI</option>
-													<option value="">Pasaporte</option>
-													<option value="ruc">Ruc</option>
+                                                <input type="hidden" asp-for="numdocli" value="@ViewBag.doc">
+                                                <select class="form-control" asp-for="tipdoccodacomp">
+													<option value="1">DNI</option>
+													<option value="2">Pasaporte</option>
+													<option value="3">Ruc</option>
 												</select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
 
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" asp-for="numdocacomp">
                                             </div>
                                         </div>
                                     </div>
@@ -181,13 +188,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombres</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" asp-for="nomacomp">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellidos</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" asp-for="apellacomp">
                                             </div>
                                         </div>
                                     </div>
@@ -203,11 +210,11 @@
                                         <div class="col-md-7">
                                             <div class="form-group">
 
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" asp-for="fecnacacomp">
                                             </div>
                                         </div>
 
-
+                                     <input type="submit" class="btn btn-primary" value="Registrar Acompañante">
                                     </div>
                                 </form>
 

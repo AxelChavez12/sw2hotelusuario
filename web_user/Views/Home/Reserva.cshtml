@@ -1,13 +1,13 @@
 @model Reserva
 <script languaje="javascript">
-var num_opciones = 2;
+var num_opciones = 1;
 var numcheckbox = 0;
 function habilitaDeshabilita(esto)
 
 {
    if (esto.checked){
 	if (numcheckbox >= num_opciones) {
-		esto.checked = false;
+		
 		alert ("Solo se puede máximo dos habitaciones");
 	} else {
 		numcheckbox++;

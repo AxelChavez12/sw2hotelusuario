@@ -22,5 +22,7 @@ namespace web_user.Models
         public string habitaciones { get; set; }
 
         public double precio{get;set;}
+        public int cant{get;set;}
+        public double sub{get;set;}
     }
 }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Escritorio\\Nueva carpetaho\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
+      "projectUniqueName": "D:\\Documentos\\hotel\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
       "projectName": "web_admin",
-      "projectPath": "D:\\Escritorio\\Nueva carpetaho\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
+      "projectPath": "D:\\Documentos\\hotel\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Escritorio\\Nueva carpetaho\\HotelLuzyLuna\\web_admin\\obj\\",
+      "outputPath": "D:\\Documentos\\hotel\\HotelLuzyLuna\\web_admin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

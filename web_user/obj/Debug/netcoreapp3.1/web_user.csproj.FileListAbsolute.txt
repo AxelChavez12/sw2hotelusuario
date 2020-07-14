@@ -38,3 +38,43 @@ D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.pdb
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.genruntimeconfig.cache
 D:\Escritorio\Nueva carpetaho\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Datos.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.exe
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.deps.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.runtimeconfig.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.runtimeconfig.dev.json
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.dll
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.pdb
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.Views.dll
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\web_user.Views.pdb
+D:\Documentos\hotel\HotelLuzyLuna\web_user\bin\Debug\netcoreapp3.1\Npgsql.dll
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.csprojAssemblyReference.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.AssemblyInfoInputs.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.AssemblyInfo.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.csproj.CoreCompileInputs.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.MvcApplicationPartsAssemblyInfo.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.RazorAssemblyInfo.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.RazorAssemblyInfo.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.TagHelpers.input.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.TagHelpers.output.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.RazorCoreGenerate.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Datos.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Home\Reserva.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.RazorTargetAssemblyInfo.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.RazorTargetAssemblyInfo.cs
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.Views.pdb
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.csproj.CopyComplete
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\staticwebassets\web_user.StaticWebAssets.Manifest.cache
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\staticwebassets\web_user.StaticWebAssets.xml
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.dll
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.pdb
+D:\Documentos\hotel\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.genruntimeconfig.cache

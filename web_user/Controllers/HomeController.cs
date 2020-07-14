@@ -85,8 +85,12 @@ namespace hotel.Controllers
         public IActionResult Registrar(Reserva r){
 
             string s = r.ape;
-            string apepat, apemat,hab1,hab2;
-            
+            string  motiv,apepat, apemat,hab1,hab2;
+            if(r.motivo!=null){
+                motiv=r.motivo;
+            }else{
+                motiv=null;
+            }
             int location = s.IndexOf(" ");
             if(location>0){
                 apepat=s.Substring(0,location);
@@ -107,7 +111,7 @@ namespace hotel.Controllers
 
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,r.motivo,r.fecha,r.correo,apemat),conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat),conn);
                     var row = cmd.ExecuteNonQuery();
                 conn.Close();
 
@@ -139,7 +143,7 @@ namespace hotel.Controllers
             double monto;
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, precio, concat( c.nomcli,' ',c.apellpater,' ',c.apemater) ,to_char(r.checkin, 'DD/MM/YYYY') ,to_char(r.checkout, 'DD/MM/YYYY'),  th.nomtiphab from habitacion h, tipohabitacion th,reservahab rh, reservahabitacion r,cliente c where th.codtiphab=h.tiphabcod and h.numhab=rh.numhab and r.codreserva=rh.codreserva and r.clidocres=c.numdoccli and r.codreserva=(select max(codreserva)from reservahabitacion)"), conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, precio, concat( c.nomcli,' ',c.apellpater,' ',c.apemater) ,to_char(r.checkin, 'DD/MM/YYYY') ,to_char(r.checkout, 'DD/MM/YYYY'),  th.nomtiphab, (checkout-checkin) ,(checkout-checkin)*precio from habitacion h, tipohabitacion th,reservahab rh, reservahabitacion r,cliente c where th.codtiphab=h.tiphabcod and h.numhab=rh.numhab and r.codreserva=rh.codreserva and r.clidocres=c.numdoccli and r.codreserva=(select max(codreserva)from reservahabitacion)"), conn);
                     NpgsqlDataReader dr = cmd.ExecuteReader();
                         while(dr.Read())
                         {
@@ -150,6 +154,8 @@ namespace hotel.Controllers
                             r.checkin=dr.GetValue(3).ToString();
                             r.checkout=dr.GetValue(4).ToString();
                             r.ape=dr.GetValue(5).ToString();
+                            r.cant=dr.GetInt32(6);
+                            r.sub=dr.GetDouble(7);
                             ViewBag.Reserva=r;
                             rs.Add(r);
 
@@ -158,13 +164,15 @@ namespace hotel.Controllers
                 conn.Close();
             
             if(rs.Count()>1){
-                monto=rs[0].precio + rs[1].precio;
+                monto=rs[0].sub + rs[1].sub;
             
                 ViewBag.hab1= rs[0].habitaciones;
                 ViewBag.tiphab2= rs[0].ape;
                 ViewBag.precio= rs[0].precio;
+                ViewBag.cant=rs[0].cant;
+                ViewBag.sub=rs[0].sub;
             }else{
-                monto=rs[0].precio;
+                monto=rs[0].sub;
             }
             
             ViewBag.Monto=monto;

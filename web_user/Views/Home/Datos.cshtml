@@ -23,6 +23,8 @@
             <th>Tipo de habitación</th>
             <th>Habitación</th>
             <th>Precio</th>
+            <th>Cantidad</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +32,8 @@
             <td><span>Habitación @ViewBag.Reserva.ape</span></td>
             <td><label> @ViewBag.Reserva.habitaciones</label></td>
             <td> @ViewBag.Reserva.precio</td>
+            <td> @ViewBag.Reserva.cant</td>
+            <td> @ViewBag.Reserva.sub</td>
         </tr>
         @if(ViewBag.hab1!=null){
     
@@ -38,6 +42,8 @@
                     <td><span>Habitación  @ViewBag.tiphab2</span></td>
                     <td><label>  @ViewBag.hab1</label></td>
                     <td>@ViewBag.precio</td>
+                    <td> @ViewBag.cant</td>
+                    <td> @ViewBag.sub</td>
                 </tr>
         }
         <tr>

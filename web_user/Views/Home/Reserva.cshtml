@@ -30,12 +30,12 @@ function habilitaDeshabilita(esto)
 
                 <div class="col-md-6">
                     <label for="">De 12 a.m</label><br>
-                    <label>Check-in : </label>  <input type="date" asp-for="checkin">
+                    <label>Check-in : </label>  <input type="date" id="txtDate"  asp-for="checkin">
                 </div>
 
                 <div class="col-md-6">
                     <label for="">A 12 p.m</label><br>
-                     <label>Check-out : </label>  <input type="date" asp-for="checkout">
+                    <label>Check-out : </label>  <input type="date" id="end"  asp-for="checkout">
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ function habilitaDeshabilita(esto)
 
                     <div class="col-md-10">
                         <h3>Habitaciones disponibles</h3>
-                
+                        <p>Máximo seleccione 2 </p>
                     </div>
                 </div>
             </div>              
@@ -612,27 +612,57 @@ function habilitaDeshabilita(esto)
 </div>
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 
- 
+
 <script>
 function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
+<script>
+    $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    
+    $('#txtDate').attr('min', maxDate);
+});
+</script>
+<script>
+   
 
+    var start = document.getElementById('txtDate');
+    var end = document.getElementById('end');
 
+    start.addEventListener('change', function() {
+        if (start.value)
+            end.min = start.value;
+    }, false);
+    end.addEventLiseter('change', function() {
+        if (end.value)
+            start.max = end.value;
+    }, false);
+</script>
 <script>
 
 $(document).ready(function() {

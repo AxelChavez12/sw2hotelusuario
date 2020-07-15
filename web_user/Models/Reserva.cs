@@ -16,6 +16,7 @@ namespace web_user.Models
         public string correo { get; set; }
         public string tippago { get; set; }
         
+        public int telefono{get;set;}
         public string checkin{get;set;}
 
         public string checkout{get;set;}

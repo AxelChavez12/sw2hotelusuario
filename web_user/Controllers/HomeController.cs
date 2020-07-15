@@ -111,7 +111,7 @@ namespace hotel.Controllers
 
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat),conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat,r.telefono),conn);
                     var row = cmd.ExecuteNonQuery();
                 conn.Close();
 
@@ -125,12 +125,25 @@ namespace hotel.Controllers
                     var row3 = cmd3.ExecuteNonQuery();
                 conn.Close();
 
+                conn.Open();
+                NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='pendiente' where numhab='{0}'",hab1),conn);
+                    var row5 = cmd5.ExecuteNonQuery();
+                conn.Close();
+
                 if(l>0){
                     conn.Open();
                 NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'pendiente')",hab2),conn);
                     var row4 = cmd4.ExecuteNonQuery();
                 conn.Close();
+
+                conn.Open();
+                NpgsqlCommand cmd6 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Pendiente' where numhab='{0}'",hab2),conn);
+                    var row6 = cmd6.ExecuteNonQuery();
+                conn.Close();
                 }
+
+                
+            
 
 
 

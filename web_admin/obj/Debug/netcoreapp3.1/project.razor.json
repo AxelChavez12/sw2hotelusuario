@@ -20559,6 +20559,11 @@
       "FilePath": "d:\\Documentos\\hotel\\HotelLuzyLuna\\web_admin\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Documentos\\hotel\\HotelLuzyLuna\\web_admin\\Views\\Home\\Habitaciones.cshtml",
+      "TargetPath": "Views\\Home\\Habitaciones.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

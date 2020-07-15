@@ -1,4 +1,12 @@
 @model Reserva
+<style>
+    input:invalid {
+  border: 2px solid #FACBAA;
+}
+input:valid {
+  background-color: #DEFFC2;
+}
+</style>
 <script languaje="javascript">
 var num_opciones = 1;
 var numcheckbox = 0;
@@ -509,7 +517,7 @@ function habilitaDeshabilita(esto)
                         <div class="col-md-6">
                             <div class="form-group">
                                 
-                                <input type="text" class="form-control" asp-for="numdoc">
+                                <input type="text" class="form-control" asp-for="numdoc"min="7" max="11">
                             </div>
                         </div>
                     </div>
@@ -524,13 +532,13 @@ function habilitaDeshabilita(esto)
                                 <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
                                 <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control" asp-for="nom">
+                                <input type="text" class="form-control" asp-for="nom" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control" asp-for="ape">
+                                <input type="text" class="form-control" asp-for="ape" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                             </div>
                         </div>
                     </div>
@@ -538,19 +546,19 @@ function habilitaDeshabilita(esto)
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Teléfono</label>
-                                <input type="text" class="form-control" asp-for="telefono">
+                                <input type="number" class="form-control" asp-for="telefono" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Correo</label>
-                                <input type="email" class="form-control" asp-for="correo">
+                                <input type="email" class="form-control" asp-for="correo" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" class="form-control" asp-for="fecha">
+                                <input type="date" class="form-control" asp-for="fecha" id="fecn" oninvalid="setCustomValidity('Debes ser mayor de edad')" required>
                             </div>
                         </div>
 
@@ -650,6 +658,18 @@ document.getElementById("defaultOpen").click();
     var maxDate = year + '-' + month + '-' + day;
     
     $('#txtDate').attr('min', maxDate);
+});
+</script>
+<script>
+    $(function(){
+    var dtToday = new Date();
+    
+    
+    var year = dtToday.getFullYear()-18;
+   
+    var maxDate = year + '-12-31';
+    
+    $('#fecn').attr('max', maxDate);
 });
 </script>
 <script>

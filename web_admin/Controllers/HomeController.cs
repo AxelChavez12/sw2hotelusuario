@@ -23,8 +23,8 @@ namespace web_admin.Controllers
         {
             return View();
         }
-         [HttpPost]
-     public IActionResult Index(Cliente num){
+        [HttpPost]
+    public IActionResult Index(Cliente num){
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT nomcli,  concat(apellpater,' ',apemater), correocli, motivohosp, telefonocli FROM cliente where numdoccli='"+num.numdocli+"'", conn);
@@ -39,8 +39,40 @@ namespace web_admin.Controllers
                 ViewBag.tele=dr.GetValue(4).ToString();
                 ViewBag.doc=num.numdocli;
             }
+            dr.Close();
+            List<Pago> p = new List<Pago>();
+            List<Room> rooms = new List<Room>();
+         
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select to_char(fechareserva, 'DD/MM/YYYY'),tippago, monto from reservahabitacion where clidocres='{0}'",num.numdocli), conn);
+            NpgsqlDataReader dataReader = cmd2.ExecuteReader();
+                while(dataReader.Read())
+            {  Random r =new Random();
+                Pago pago= new Pago();
+                pago.fecope=dataReader.GetValue(0).ToString();
+                pago.numope= r.Next(1111,9999);
+                pago.refe=dataReader.GetValue(1).ToString();
+                pago.monto=dataReader.GetDouble(2);
+                p.Add(pago);
+            }
+            dataReader.Close();
+            NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("select d.iddetventa,p.nomproducto,d.cantidad,d.subtotal from cliente c, ventas v , detalleventa d, producto p where  c.numdoccli=v.clinumven and v.codventa=d.ventascod and d.productocod=p.codproducto and c.numdoccli='{0}'", num.numdocli), conn);
+            NpgsqlDataReader datar = cmd3.ExecuteReader();
+            while(datar.Read()){
+                
+                Room ro= new Room();
+                ro.id=dr.GetValue(0).ToString();
+                ro.prodnom=dr.GetValue(1).ToString();
+                ro.cantidad=dr.GetInt32(2);
+                ro.total=dr.GetDouble(3);
+                rooms.Add(ro);
+            }
+            datar.Close();
+            conn.Close();
+            ViewBag.Pago= p;
+            ViewBag.Rooms= rooms;
+         
             return View();
-     }  
+    }  
         
     [HttpPost]
 
@@ -52,6 +84,10 @@ namespace web_admin.Controllers
         conn.Close();
         return RedirectToAction("Index");
     }
+
+    
+                
+
         public IActionResult Ventas()
         {
             return View();

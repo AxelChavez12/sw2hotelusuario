@@ -115,25 +115,36 @@
                                             <button class="btn btn-primary">Verificar Pago</button>
                                         </div>
                                         <div class="col-md-12">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Fecha de operación</th>
-                                                        <th>Número operación</th>
-                                                        <th>Referencia</th>
-                                                        <th>Monto</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>03/07/2020</td>
-                                                        <td>2343</td>
-                                                        <td>Deposito</td>
-                                                        <td>S/.120.00</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
+                                           
+                                               
+                                                    @if(ViewBag.Pago!=null){
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Fecha de operación</th>
+                                                                <th>Número operación</th>
+                                                                <th>Referencia</th>
+                                                                <th>Monto</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach(var item in (List<Pago>)ViewBag.Pago){
+                                                
+                                                        <tr>
+                                                            <td>@item.fecope</td>
+                                                            <td>@item.numope</td>
+                                                            <td>@item.refe</td>
+                                                            <td>S/. @item.monto</td>
+                                                        </tr>
+                                                    
+                                                        }  </tbody>
+                                                        </table>
+                                                    }else{
+                                        
+                                                        <p style="margin: 10px 20px 10px 20px;">No se encuentra ninguna operación</p>    
+                                                    }
+                                            
+                                        
                                         </div>
                                     </div>
 
@@ -232,7 +243,9 @@
                             </div>
 
 
-                            <table class="table">
+                            
+                                    @if(ViewBag.Rooms!=null){
+                                    <table class="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -243,17 +256,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>01</td>
-                                        <td>Gaseosa</td>
-                                        <td>2</td>
-                                        <td>1.5</td>
-                                        <td>3.00</td>
-                                    </tr>
+                                        @foreach(var item in (List<Room>)ViewBag.Rooms){
+                                            <tr>
+                                                <td>@item.id</td>
+                                                <td>@item.prodnom</td>
+                                                <td>@item.cantidad</td>
+                                                <td>@item.precio</td>
+                                                <td>@item.total</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    </table>
 
+                                        
+                                    }else{
+                                        
+                                        <p style="margin: 10px 20px 10px 20px;">No se encuentra ninguna operación</p>    
+                                    }
 
-                                </tbody>
-                            </table>
+                               
 
 
 

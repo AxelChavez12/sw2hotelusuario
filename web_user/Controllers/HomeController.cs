@@ -116,7 +116,7 @@ namespace hotel.Controllers
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito','{2}')",r.checkin,r.checkout,r.numdoc),conn);
+                NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito','{2}',0)",r.checkin,r.checkout,r.numdoc),conn);
                     var row2 = cmd2.ExecuteNonQuery();
                 conn.Close();
 
@@ -175,6 +175,11 @@ namespace hotel.Controllers
                 monto=rs[0].sub;
             }
             
+            conn.Open();
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format( " update reservahabitacion set monto={0}  where codreserva=(select max(codreserva)from reservahabitacion)",monto), conn);
+                var row=cmd2.ExecuteNonQuery();
+            conn.Close();
+
             ViewBag.Monto=monto;
             
             

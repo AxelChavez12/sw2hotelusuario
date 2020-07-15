@@ -287,3 +287,37 @@ div.form-check {
 .card input {
     font-size: 11px;
 }
+
+.contenedorHabi a{
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.cardhab{
+    border: 1px solid #CDCDCD;
+    margin: 10px ;
+}
+.imagenhab{
+    background-color: 	#f1f1f1;
+    margin: 10px;
+    text-align: center;
+}
+
+.imagenhab label{
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.imagenhab p{
+    font-size: 20px;
+    text-align: center;
+}
+.estadohab{
+
+    color: #dfdfdf;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+

@@ -121,18 +121,18 @@ namespace hotel.Controllers
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'pendiente')",hab1),conn);
+                NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Pendiente')",hab1),conn);
                     var row3 = cmd3.ExecuteNonQuery();
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='pendiente' where numhab='{0}'",hab1),conn);
+                NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Pendiente' where numhab='{0}'",hab1),conn);
                     var row5 = cmd5.ExecuteNonQuery();
                 conn.Close();
 
                 if(l>0){
                     conn.Open();
-                NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'pendiente')",hab2),conn);
+                NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Pendiente')",hab2),conn);
                     var row4 = cmd4.ExecuteNonQuery();
                 conn.Close();
 

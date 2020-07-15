@@ -90,7 +90,7 @@ namespace web_admin.Controllers
             List<Hab> habs= new List<Hab>();
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT r.numhab, r.estado,t.nomtiphab FROM reservahab r, tipohabitacion t, habitacion h where r.numhab=h.numhab and h.tiphabcod=t.codtiphab",conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab, h.estadohab,t.nomtiphab FROM  tipohabitacion t, habitacion h  where  h.tiphabcod=t.codtiphab union select numhab,estadohab, th.nomtiphab from habitacion h, tipohabitacion th where estadohab='Disponible' and th.codtiphab=h.tiphabcod  order by numhab",conn);
             
                 NpgsqlDataReader dr = cmd.ExecuteReader();
             while(dr.Read()){

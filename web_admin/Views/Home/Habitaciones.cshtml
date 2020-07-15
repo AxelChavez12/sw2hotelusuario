@@ -1,13 +1,56 @@
 <main class="main col">
+    <div class="contenedorHabi">
                 <div class="row">
 
-                    @foreach (var item in (List<Hab>)ViewBag.Hab)
-                    {
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="imagen" back></div>
+
+                        @foreach (var item in (List<Hab>)ViewBag.Hab)
+                        {
+                            
+                        
+                        <div class="col-md-3">
+                            <a asp-controller="Home" asp-action="Index" asp-route-num="@item.numhab">
+                            <div class="cardhab">
+                                
+                                <div class="imagenhab">
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>@item.numhab</label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <img src="~/img/habicon.jpg" height="100px" width="100px">
+                                        </div>
+                                        
+                                            @if(item.tipo.Equals("Matrimonial")){
+                                            <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            <br>
+                                            }else{
+                                                <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            }
+                                        
+                                    </div>
+                                    
+                                </div>
+                                @if(item.estado.Equals("Pendiente")){
+                                    <div class="estadohab" style="background-color: #EF9214;">
+                                        <span>@item.estado</span>
+                                    </div>
+                                }else if(item.estado.Equals("Disponible")){
+                                    <div class="estadohab" style="background-color: #35ae6b;">
+                                        <span>@item.estado</span>
+                                    </div>
+                                }
+
                             </div>
+                            </a>
                         </div>
-                    }
+                        
+                        }
+                
                 </div>
+    </div>
 </main>

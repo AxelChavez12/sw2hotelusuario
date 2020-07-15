@@ -75,3 +75,4 @@ D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.pd
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.genruntimeconfig.cache
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.csproj.CopyComplete
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\bin\Debug\netcoreapp3.1\Npgsql.dll
+D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Home\Habitaciones.cshtml.g.cs

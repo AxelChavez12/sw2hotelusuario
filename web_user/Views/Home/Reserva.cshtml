@@ -518,7 +518,7 @@ function habilitaDeshabilita(esto)
                         <div class="col-md-6">
                             <div class="form-group">
                                 
-                                <input type="text" class="form-control" asp-for="numdoc"min="7" max="11">
+                                <input type="text" class="form-control" asp-for="numdoc"min="7" max="11" required>
                             </div>
                         </div>
                     </div>
@@ -533,13 +533,13 @@ function habilitaDeshabilita(esto)
                                 <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
                                 <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control" asp-for="nom" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
+                                <input type="text" class="form-control" asp-for="nom" pattern="^[a-zA-Z\s]*$" oninvalid="setCustomValidity('Solo ingresar letras')" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control" asp-for="ape" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
+                                <input type="text" class="form-control" asp-for="ape" pattern="^[a-zA-Z\s]*$" oninvalid="setCustomValidity('Solo ingresar letras')" required>
                             </div>
                         </div>
                     </div>
@@ -547,13 +547,13 @@ function habilitaDeshabilita(esto)
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Teléfono</label>
-                                <input type="number" class="form-control" asp-for="telefono" required>
+                                <input type="text" class="form-control" asp-for="telefono" min="7" max="9" pattern="^[\A([0-9]{3}\s){2}[0-9]{3}\Z]+$" oninvalid="setCustomValidity('Solo ingresar numeros (0-9)')" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Correo</label>
-                                <input type="email" class="form-control" asp-for="correo" required>
+                                <input type="email" class="form-control" asp-for="correo" pattern="^[\A[w]{3}(\.)[a-z0-9]+(\.)(com|net|info|org)\Z]+$" oninvalid="setCustomValidity('El formato de correo es incorrecto')" required>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -565,7 +565,7 @@ function habilitaDeshabilita(esto)
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                *opcional
+                                * opcional
                                 <select class="form-control" asp-for="motivo">
                                     <option value="" disabled="" selected="">Motivo de viaje</option>
                                     <option value="Vacaciones">Vacaciones</option>
@@ -589,7 +589,7 @@ function habilitaDeshabilita(esto)
                     
                     </div>
                     <div class="col-md-4">
-                            <input type="radio" asp-for="tippago" name="tippago" value="Efectivo"> <label> Efectivo</label>
+                            <input type="radio" asp-for="tippago" name="tippago" value="Efectivo"> <label>Efectivo</label>
                     </div>
                     <div class="col-md-8">
                             <input type="radio" asp-for="tippago" name="tippago" value="Deposito"> <label>Por depósito</label>

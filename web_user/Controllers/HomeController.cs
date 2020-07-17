@@ -126,7 +126,7 @@ namespace hotel.Controllers
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Pendiente' where numhab='{0}'",hab1),conn);
+                NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Reservado' where numhab='{0}'",hab1),conn);
                     var row5 = cmd5.ExecuteNonQuery();
                 conn.Close();
 

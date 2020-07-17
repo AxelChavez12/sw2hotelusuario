@@ -89,8 +89,12 @@ namespace web_admin.Controllers
         public IActionResult RegistrarProducto(Pedido p){
 
             conn.Open();
-            
+            Random r = new Random();
+            int num=r.Next(100001,999999);
+            NpgsqlCommand cmd= new NpgsqlCommand(String.Format(" insert into ventas values((select coalesce(max(codventa)+1,1) from ventas),'{0}',(select precventa from producto where codproducto=1)*{1},{2},1,habnum,to_char(current_timestamp ,'HH24:MI:SS'))",num,p.cantidad,p.codcli));
+            var row=cmd.ExecuteNonQuery();
 
+            
             
             return RedirectToAction("Registrar");
         }

@@ -11,13 +11,14 @@ namespace web_admin.Controllers
 {
     public class VentasController : Controller
     {
+        NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
+            
         public List<Producto> prods= new List<Producto>();
         public IActionResult Index(){
 
             List<Hab> habs= new List<Hab>();
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab FROM  tipohabitacion t, habitacion h  where  h.tiphabcod=t.codtiphab and h.estadohab='Ocupado' order by numhab",conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab FROM  tipohabitacion t, habitacion h , reservahab rh where  h.tiphabcod=t.codtiphab and h.numhab=rh.numhab and rh.estado='Ocupado' order by numhab",conn);
             
                 NpgsqlDataReader dr = cmd.ExecuteReader();
             while(dr.Read()){
@@ -52,10 +53,9 @@ namespace web_admin.Controllers
         }
 
 
-        public IActionResult Registrar(int num){
+        public IActionResult Registrar(int id){
 
             
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select codproducto, tipoprod, nomproducto, precventa,stock from producto",conn);
             
@@ -69,15 +69,27 @@ namespace web_admin.Controllers
                 p.stock=1;
                 prods.Add(p);
             }
-            
+            dr.Close();
             ViewBag.Prod=prods;
+
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select rh.numhab,concat(c.nomcli,' ',c.apellpater,' ',c.apemater),to_char(current_timestamp ,'HH24:MI')  from reservahab rh,reservahabitacion r, cliente c where c.codcliente=r.clientecod and rh.codreserva=r.codreserva and rh.numhab='{0}' and current_date between r.checkin and r.checkout",id),conn);
+            
+                NpgsqlDataReader dr2 = cmd2.ExecuteReader();
+                if(dr2.Read()){
+                    ViewBag.num=id;
+                    ViewBag.nom=dr2.GetValue(1).ToString();
+                    ViewBag.hora=dr2.GetValue(2).ToString();
+                }
+            dr2.Close();
+            conn.Close();
 
             return View();
         }
 
         public IActionResult RegistrarProducto(Pedido p){
 
-           
+            conn.Open();
+            
 
             
             return RedirectToAction("Registrar");
@@ -85,7 +97,6 @@ namespace web_admin.Controllers
 
         public IActionResult Buscar(){
             List<Producto> prods= new List<Producto>();
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select codproducto, tipoprod, nomproducto, precventa,stock from producto",conn);
             

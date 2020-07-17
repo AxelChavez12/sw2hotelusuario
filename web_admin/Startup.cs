@@ -50,7 +50,7 @@ namespace web_admin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Checkin}/{action=Index}/{id?}");
             });
         }
     }

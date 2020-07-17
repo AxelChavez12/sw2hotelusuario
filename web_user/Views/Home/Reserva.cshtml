@@ -528,7 +528,7 @@ function habilitaDeshabilita(esto)
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="hidden" id="respuesta" asp-for="habitaciones">
+                                <input type="hidden" id="respuesta" asp-for="habitaciones" oninvalid="setCustomValidity(' ')" required>
                                 <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
                                 <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
                                 <label>Nombres</label>

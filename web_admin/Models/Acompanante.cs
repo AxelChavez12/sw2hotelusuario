@@ -6,6 +6,7 @@ namespace web_admin.Models
         public int tipdoccodacomp  {get; set;}
         public string apellacomp  {get; set;}
         public string nomacomp  {get; set;}
+        public string fecnacacomp{get;set;}        
         public string clinumdoacomp  {get; set;}
     }
 }

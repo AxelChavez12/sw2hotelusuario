@@ -23,7 +23,7 @@ body {
 /* --- LOGO --- */
 
 .barra-lateral .logo {
-    background: #0275db;
+    background: #2C5545;
     margin-bottom: 2px;
 }
 
@@ -288,36 +288,69 @@ div.form-check {
     font-size: 11px;
 }
 
-.contenedorHabi a{
+.letrastart h3 {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.captura {
+    background: #D9D7D7;
+}
+
+button.inicioroom {
+    background: #4E4E4E;
+    color: #ffffff;
+}
+
+p.textoroom {
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+}
+
+button.ocupado {
+    background: #FFCD48;
+    color: #ffffff;
+}
+
+a.disponible {
+    background: #2C5545;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+a.ocupado {
+    background: #FFCD48;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+a.reservado {
+    background: #4E4E4E;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+a{
     text-decoration: none;
-    color: #1C1C1C;
 }
 
-.cardhab{
-    border: 1px solid #CDCDCD;
-    margin: 10px ;
-}
-.imagenhab{
-    background-color: 	#f1f1f1;
-    margin: 10px;
-    text-align: center;
+a.room {
+    background: #4E4E4E;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
 }
 
-.imagenhab label{
-    font-size: 40px;
-    padding-top: 20px;
-    padding-left: 25px;
-}
-.imagenhab p{
-    font-size: 20px;
-    text-align: center;
-}
-.estadohab{
-
-    color: #dfdfdf;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
+.nav.nav-tabs {
+    padding: 20px 0 20 0px;
+    background: #4E4E4E;
+    color: #ffffff;
 }
 
+.nav-item a {
+    color: #ffffff;
+}

@@ -13,11 +13,7 @@ namespace web_admin.Models
         public string nacionalidadcli  {get; set;}
         public string apemater  {get; set;}
         public int telefonocli {get;set;}
-        public string numdocacomp  {get; set;}
-        public int tipdoccodacomp  {get; set;}
-        public string apellacomp  {get; set;}
-        public string nomacomp  {get; set;}
-         public string fecnacacomp{get;set;}
+
 
     }
 }

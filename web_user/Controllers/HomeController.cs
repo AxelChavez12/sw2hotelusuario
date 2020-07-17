@@ -111,12 +111,12 @@ namespace hotel.Controllers
 
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values({0},'{1}','{2}','{3}','{4}','{5}','{6}',null,null,'{7}')",r.numdoc,r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat,r.telefono),conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values((select coalesce(max(codcliente)+1,1) from cliente),'{0}','{1}','{2}','{3}','{4}','{5}',null,null,'{6}','{7}','{8}')",r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat,r.telefono,r.numdoc),conn);
                     var row = cmd.ExecuteNonQuery();
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito','{2}',0)",r.checkin,r.checkout,r.numdoc),conn);
+                NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito',(select max(codcliente) from cliente),0)",r.checkin,r.checkout),conn);
                     var row2 = cmd2.ExecuteNonQuery();
                 conn.Close();
 
@@ -156,7 +156,7 @@ namespace hotel.Controllers
             double monto;
             NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, precio, concat( c.nomcli,' ',c.apellpater,' ',c.apemater) ,to_char(r.checkin, 'DD/MM/YYYY') ,to_char(r.checkout, 'DD/MM/YYYY'),  th.nomtiphab, extract(epoch from (checkout-checkin))/24/60/60+1,(extract(epoch from (checkout-checkin))/24/60/60+1)*precio from habitacion h, tipohabitacion th,reservahab rh, reservahabitacion r,cliente c where th.codtiphab=h.tiphabcod and h.numhab=rh.numhab and r.codreserva=rh.codreserva and r.clidocres=c.numdoccli and r.codreserva=(select max(codreserva)from reservahabitacion)"), conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format( "select h.numhab, precio, concat( c.nomcli,' ',c.apellpater,' ',c.apemater) ,to_char(r.checkin, 'DD/MM/YYYY') ,to_char(r.checkout, 'DD/MM/YYYY'),  th.nomtiphab, extract(epoch from (checkout-checkin))/24/60/60+1,(extract(epoch from (checkout-checkin))/24/60/60+1)*precio from habitacion h, tipohabitacion th,reservahab rh, reservahabitacion r,cliente c where th.codtiphab=h.tiphabcod and h.numhab=rh.numhab and r.codreserva=rh.codreserva and r.clientecod=c.codcliente and r.codreserva=(select max(codreserva)from reservahabitacion)"), conn);
                     NpgsqlDataReader dr = cmd.ExecuteReader();
                         while(dr.Read())
                         {

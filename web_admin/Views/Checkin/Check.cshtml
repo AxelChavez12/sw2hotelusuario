@@ -1,0 +1,248 @@
+@model Acompanante
+<main class="main col">
+                <div class="row">
+                    <div class="columna col-lg-7">
+                        <div class="widget nueva_entrada">
+                            <h3 class="titulo">Centro Check-In - Luz y Luna</h3>
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+                <div class="row mb-4">
+
+                    <div class="columna col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Datos de Huesped
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <select class="form-control" disabled>
+											<option value="">DNI</option>
+											<option value="">Pasaporte</option>
+											<option value="ruc">Ruc</option>
+										</select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <input type="text" class="form-control" value="@ViewBag.doc" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombres</label>
+                                                <input type="text" class="form-control" value="@ViewBag.nomcli" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellidos</label>
+                                                <input type="text" class="form-control" value="@ViewBag.apellpater" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Teléfono</label>
+                                                <input type="text" class="form-control" value="@ViewBag.tele" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Correo</label>
+                                                <input type="email" class="form-control" value="@ViewBag.correocli" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <span class="input-group-text">Motivo de Viaje</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" name="" id="" class="form-control" value="@ViewBag.moti" disabled>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Datos de Habitación
+                            </div>
+                            <div class="card-body">
+
+                                <div class="box-details">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <button class="btn btn-primary">Verificar Pago</button>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha de operación</th>
+                                                        <th>Número operación</th>
+                                                        <th>Referencia</th>
+                                                        <th>Monto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in (List<Pago>) ViewBag.Pago)
+                                                    {
+                                                        
+                                                    
+                                                    <tr>
+                                                        <td>@item.fecope</td>
+                                                        <td>@item.numope</td>
+                                                        <td>@item.refe</td>
+                                                        <td>@item.monto</td>
+                                                    </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mb-5">
+
+
+                    <div class="columna col-lg-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                Datos Acompañante
+                            </div>
+                            <div class="card-body">
+
+
+
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="hidden" value="@ViewBag.doc" asp-for="clinumdoacomp">
+                                                <select class="form-control" asp-for="tipdoccodacomp">
+													<option value="">DNI</option>
+													<option value="">Pasaporte</option>
+													<option value="ruc">Ruc</option>
+												</select>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <input type="text" class="form-control" asp-for="numdocacomp">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombres</label>
+                                                <input type="text" class="form-control" asp-for="nomacomp">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellidos</label>
+                                                <input type="text" class="form-control" asp-for="apellacomp">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+
+                                                <input type="date" class="form-control" asp-for="fecnacacomp">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row mb-4">
+                    <div class="columna col-lg-4">
+
+                    </div>
+                    <div class="columna col-lg-2">
+                        <button class="btn btn-primary">Atras</button>
+                    </div>
+                    <div class="columna col-lg-6">
+                        <button class="btn btn-primary">Realizar Reserva</button>
+                    </div>
+
+
+                </div>
+
+
+            </main>

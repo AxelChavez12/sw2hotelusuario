@@ -1,0 +1,42 @@
+@model Producto
+<main class="main col">
+    <p>Hola</p>
+
+<form method="POST" asp-controller="Habitacion" asp-action="Registrar">
+    nombre : <input type="text" asp-for="nom">
+    <br>
+    stock: <input type="number" asp-for="stock">
+    <br>
+    precio: <input type="number" asp-for="precio">
+    <br>
+    tipo:<input type="text" asp-for="tipo">
+
+    <br>
+    <input type="submit" value="Registrar">
+</form>
+<br>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+
+     
+        @foreach (var item in (List<Producto>) ViewBag.productos)
+    {  <tr>
+        <td>@item.tipo</td>
+        <td>@item.nom</td>
+        <td>@item.precio</td>
+    </tr>
+    }
+    
+    </tbody>
+</table>
+
+
+</main>

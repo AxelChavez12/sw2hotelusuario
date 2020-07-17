@@ -8,7 +8,7 @@ input:valid {
 }
 </style>
 <script languaje="javascript">
-var num_opciones = 1;
+var num_opciones = 2;
 var numcheckbox = 0;
 function habilitaDeshabilita(esto)
 
@@ -16,7 +16,8 @@ function habilitaDeshabilita(esto)
    if (esto.checked){
 	if (numcheckbox >= num_opciones) {
 		
-		alert ("Solo se puede máximo dos habitaciones");
+		alert ("Solo se puede selecionar máximo dos habitaciones");
+        esto.checked = false;
 	} else {
 		numcheckbox++;
 	}

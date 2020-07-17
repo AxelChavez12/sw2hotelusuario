@@ -84,10 +84,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <span class="input-group-text">Motivo de Viaje</span>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-8">
                                             <input type="text" name="" id="" class="form-control" value="@ViewBag.moti" disabled>
                                         </div>
                                     </div>
@@ -109,8 +109,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                            <button class="btn btn-primary">Verificar Pago</button>
-                                        </div>
+                                          <!--  <button class="btn btn-primary">Verificar Pago</button>
+                                      -->  </div>
                                         <div class="col-md-12">
                                             <table class="table">
                                                 <thead>
@@ -118,6 +118,7 @@
                                                         <th>Fecha de operación</th>
                                                         <th>Número operación</th>
                                                         <th>Referencia</th>
+                                                        <th>Habitación</th>
                                                         <th>Monto</th>
                                                     </tr>
                                                 </thead>
@@ -130,6 +131,7 @@
                                                         <td>@item.fecope</td>
                                                         <td>@item.numope</td>
                                                         <td>@item.refe</td>
+                                                        <td>@item.hab</td>
                                                         <td>@item.monto</td>
                                                     </tr>
                                                     }
@@ -149,7 +151,7 @@
                     </div>
 
                 </div>
-
+<form method="POST" asp-controller="Checkin" asp-action="Registrar">
                 <div class="row mb-5">
 
 
@@ -163,15 +165,16 @@
 
 
 
-                                <form>
+                                
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="hidden" value="@ViewBag.doc" asp-for="clinumdoacomp">
+                                                <input type="hidden" value="@ViewBag.hab" asp-for="numhab">
                                                 <select class="form-control" asp-for="tipdoccodacomp">
-													<option value="">DNI</option>
-													<option value="">Pasaporte</option>
-													<option value="ruc">Ruc</option>
+													<option value="1">DNI</option>
+													<option value="2">Pasaporte</option>
+													<option value="3">Ruc</option>
 												</select>
                                             </div> 
                                         </div>
@@ -217,7 +220,7 @@
 
 
                                     </div>
-                                </form>
+                                
 
 
 
@@ -235,7 +238,7 @@
 
                     </div>
                     <div class="columna col-lg-2">
-                        <button class="btn btn-primary">Atras</button>
+                        <button href="#" class="btn btn-primary">Atras</button>
                     </div>
                     <div class="columna col-lg-6">
                         <button class="btn btn-primary">Realizar Reserva</button>
@@ -244,5 +247,5 @@
 
                 </div>
 
-
+</form>
             </main>

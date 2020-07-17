@@ -13,17 +13,19 @@ namespace web_admin.Controllers
     public class CheckinController: Controller
     {
 
+        NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
+        
         public IActionResult Index(){
             List<Hab> habs= new List<Hab>();
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab FROM  tipohabitacion t, habitacion ha ,reservahab h, reservahabitacion r  where ha.numhab=h.numhab and  ha.tiphabcod=t.codtiphab and h.codreserva=r.codreserva and current_date=r.checkin",conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab, h.estado FROM  tipohabitacion t, habitacion ha ,reservahab h, reservahabitacion r  where ha.numhab=h.numhab and  ha.tiphabcod=t.codtiphab and h.codreserva=r.codreserva and current_date=r.checkin",conn);
             
                 NpgsqlDataReader dr = cmd.ExecuteReader();
             while(dr.Read()){
                 Hab hab= new Hab();
                 hab.numhab=dr.GetInt32(0);
                 hab.tipo=dr.GetValue(1).ToString();
+                hab.estado=dr.GetValue(2).ToString();
                 habs.Add(hab);
             }
             
@@ -51,9 +53,9 @@ namespace web_admin.Controllers
         }
 
         public IActionResult Check(int num){
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
+            List<Pago> p =new List<Pago>();
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("select nomcli,  concat(apellpater,' ',apemater), correocli, motivohosp, telefonocli, numerodoccli FROM cliente c , reservahabitacion r, reservahab rh where c.codcliente=r.clientecod and r.codreserva=rh.codreserva and rh.numhab='"+num+"'", conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select nomcli,  concat(apellpater,' ',apemater), correocli, motivohosp, telefonocli, numerodoccli, to_char(fechareserva, 'DD/MM/YYYY'),tippago,rh.numhab ,th.precio from reservahabitacion r, reservahab rh, cliente c, habitacion h, tipohabitacion th where c.codcliente=r.clientecod and r.codreserva=rh.codreserva and rh.codreserva=(select r.codreserva from reservahabitacion r, reservahab rh  where r.codreserva=rh.codreserva and rh.numhab='{0}') and h.numhab=rh.numhab  and r.checkin=current_date and th.codtiphab=h.tiphabcod",num), conn);
             NpgsqlDataReader dr = cmd.ExecuteReader();
             
             if(dr.Read()){
@@ -64,35 +66,33 @@ namespace web_admin.Controllers
                 ViewBag.moti=dr.GetValue(3).ToString();
                 ViewBag.tele=dr.GetValue(4).ToString();
                 ViewBag.doc=dr.GetValue(5).ToString();
-            }
-            dr.Close();
-            List<Pago> p = new List<Pago>();
-            List<Room> rooms = new List<Room>();
-        
-            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select to_char(fechareserva, 'DD/MM/YYYY'),tippago, monto from reservahabitacion r, reservahab rh where r.codreserva=rh.codreserva and rh.numhab='{0}' and rh.numhab=h.numhab and h.estadohab='Reservado'",num), conn);
-            NpgsqlDataReader dataReader = cmd2.ExecuteReader();
-                while(dataReader.Read())
-            {  Random r =new Random();
+                ViewBag.hab=dr.GetInt32(8);
                 Pago pago= new Pago();
-                pago.fecope=dataReader.GetValue(0).ToString();
-                pago.numope= r.Next(1111,9999);
-                pago.refe=dataReader.GetValue(1).ToString();
-                pago.monto=dataReader.GetDouble(2);
+                pago.fecope=dr.GetValue(6).ToString();
+                Random r= new Random();
+                pago.numope=r.Next(1001,9999);
+                pago.refe=dr.GetValue(7).ToString();
+                pago.hab=dr.GetInt32(8);
+                pago.monto+=dr.GetDouble(9);
                 p.Add(pago);
             }
-            dataReader.Close();
+            dr.Close();
         
             ViewBag.Pago= p;
             return View();
         }
 
-          [HttpPost]
+        [HttpPost]
 
         public IActionResult Registrar (Acompanante a){
-            NpgsqlConnection conn = new NpgsqlConnection("Host = ec2-34-197-141-7.compute-1.amazonaws.com; Username=ndjaxklicmdweo;Password= 1ce8484d6fcc56b48073eca44510227bab6703584f2b994f37b8a0de42570940;Database = d6pb7d8nu1qd7t; Port= 5432; SSL Mode= Require; Trust Server certificate = true");
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(String.Format("insert into acompañante values ((select coalesce(max(codacompañante)+1,1) from acompañante),'{0}', '{1}', '{2}', '{3}','{4}')",a.tipdoccodacomp, a.apellacomp, a.nomacomp,a.clinumdoacomp,a.numdocacomp), conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(String.Format("insert into acompañante values ((select coalesce(max(codacompañante)+1,1) from acompañante),'{0}', '{1}', '{2}', (select codcliente from cliente where numerodoccli='{3}'),'{4}')",a.tipdoccodacomp, a.apellacomp, a.nomacomp,a.clinumdoacomp,a.numdocacomp), conn);
             var row = cmd.ExecuteNonQuery();
+
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",a.numhab), conn);
+            var row2 = cmd2.ExecuteNonQuery();
+
+
             conn.Close();
             return RedirectToAction("Index");
         }

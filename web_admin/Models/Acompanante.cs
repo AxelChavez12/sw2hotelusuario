@@ -8,5 +8,7 @@ namespace web_admin.Models
         public string nomacomp  {get; set;}
         public string fecnacacomp{get;set;}        
         public string clinumdoacomp  {get; set;}
+
+        public int numhab { get; set; }
     }
 }

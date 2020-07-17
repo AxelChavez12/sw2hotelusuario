@@ -80,4 +80,3 @@ D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Checkin\Check.cshtml.g.cs
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Index.cshtml.g.cs
 D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Registrar.cshtml.g.cs
-D:\Documentos\hotel\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Habitacion\Index.cshtml.g.cs

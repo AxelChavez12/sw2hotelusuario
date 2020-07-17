@@ -76,20 +76,17 @@
                                                         <p class="card-text textoroom">@item.tipo</p>
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             
-                                                                
-                                                            @if(item.estado.Equals("Reservado")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }else if(item.estado.Equals("Disponible")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="disponible"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }  
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
 
-                                                                
-                                                            
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        } 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,18 +146,20 @@
 
                                                         <p class="card-text textoroom">@item.tipo</p>
                                                         <div class="d-flex justify-content-between align-items-center">
-                                                            @if(item.estado.Equals("Reservado")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }else if(item.estado.Equals("Disponible")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="disponible"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }  
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        } 
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,17 +228,18 @@
 
                                                         <p class="card-text textoroom">@item.tipo</p>
                                                         <div class="d-flex justify-content-between align-items-center">
-                                                            @if(item.estado.Equals("Reservado")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }else if(item.estado.Equals("Disponible")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="disponible"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }  
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        } 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -301,19 +301,21 @@
                                                     <div class="card-body">
 
                                                         <p class="card-text textoroom">@item.tipo</p>
-                                                         <div class="d-flex justify-content-between align-items-center">
-                                                           @if(item.estado.Equals("Reservado")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }else if(item.estado.Equals("Disponible")){
-                                                                <div class="btn-group a" >
-                                                                    <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="disponible"><span>@item.estado</span></a>
-                                                                </div>
-                                                            }  
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
 
+                                                            </div>
+                                                        } 
                                                         </div>
+                                                         
                                                     </div>
                                                 </div>
                                             </div>

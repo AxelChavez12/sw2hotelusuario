@@ -529,17 +529,17 @@ function habilitaDeshabilita(esto)
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="hidden" id="respuesta" asp-for="habitaciones" oninvalid="setCustomValidity(' ')" required>
+                                <input type="text" id="respuesta" asp-for="habitaciones" pattern=".{3,7}" required>
                                 <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
                                 <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control" asp-for="nom" pattern="^[a-zA-Z\s]*$" oninvalid="setCustomValidity('Solo ingresar letras')" required>
+                                <input type="text" class="form-control" asp-for="nom" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control" asp-for="ape" pattern="^[a-zA-Z\s]*$" oninvalid="setCustomValidity('Solo ingresar letras')" required>
+                                <input type="text" class="form-control" asp-for="ape" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}+" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                             </div>
                         </div>
                     </div>

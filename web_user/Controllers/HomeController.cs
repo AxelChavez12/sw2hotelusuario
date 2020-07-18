@@ -121,7 +121,7 @@ namespace hotel.Controllers
                 conn.Close();
 
                 conn.Open();
-                NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Pendiente')",hab1),conn);
+                NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Reservado')",hab1),conn);
                     var row3 = cmd3.ExecuteNonQuery();
                 conn.Close();
 

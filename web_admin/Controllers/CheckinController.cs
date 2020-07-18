@@ -63,7 +63,7 @@ namespace web_admin.Controllers
         public IActionResult Check(int num){
             List<Pago> p =new List<Pago>();
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select nomcli,  concat(apellpater,' ',apemater), correocli, motivohosp, telefonocli, numerodoccli, to_char(fechareserva, 'DD/MM/YYYY'),tippago,rh.numhab ,th.precio from reservahabitacion r, reservahab rh, cliente c, habitacion h, tipohabitacion th where c.codcliente=r.clientecod and r.codreserva=rh.codreserva and rh.codreserva=(select r.codreserva from reservahabitacion r, reservahab rh  where r.codreserva=rh.codreserva and rh.numhab='{0}') and h.numhab=rh.numhab  and r.checkin=current_date and th.codtiphab=h.tiphabcod",num), conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select nomcli,  concat(apellpater,' ',apemater), correocli, motivohosp, telefonocli, numerodoccli, to_char(fechareserva, 'DD/MM/YYYY'),tippago,rh.numhab ,th.precio from reservahabitacion r, reservahab rh, cliente c, habitacion h, tipohabitacion th where c.codcliente=r.clientecod and r.codreserva=rh.codreserva and rh.numhab=h.numhab  and h.numhab={0}  and r.checkin=current_date and th.codtiphab=h.tiphabcod",num), conn);
             NpgsqlDataReader dr = cmd.ExecuteReader();
             
             if(dr.Read()){
@@ -74,7 +74,7 @@ namespace web_admin.Controllers
                 ViewBag.moti=dr.GetValue(3).ToString();
                 ViewBag.tele=dr.GetValue(4).ToString();
                 ViewBag.doc=dr.GetValue(5).ToString();
-                ViewBag.hab=dr.GetInt32(8);
+                ViewBag.hab=num;
                 Pago pago= new Pago();
                 pago.fecope=dr.GetValue(6).ToString();
                 Random r= new Random();
@@ -96,11 +96,18 @@ namespace web_admin.Controllers
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(String.Format("insert into acompañante values ((select coalesce(max(codacompañante)+1,1) from acompañante),'{0}', '{1}', '{2}', (select codcliente from cliente where numerodoccli='{3}'),'{4}')",a.tipdoccodacomp, a.apellacomp, a.nomacomp,a.clinumdoacomp,a.numdocacomp), conn);
             var row = cmd.ExecuteNonQuery();
-
-            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",a.numhab), conn);
+             NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",a.numhab), conn);
             var row2 = cmd2.ExecuteNonQuery();
+            int num=a.numhab;
 
 
+            conn.Close();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Reservar(int numhab){
+            conn.Open();
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",numhab), conn);
+            var row2 = cmd2.ExecuteNonQuery();
             conn.Close();
             return RedirectToAction("Index");
         }

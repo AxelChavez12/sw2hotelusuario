@@ -179,7 +179,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
 
-                                                <input type="text" class="form-control" asp-for="numdocacomp">
+                                                <input type="text" class="form-control" asp-for="numdocacomp" min="7" max="11" required>
                                             </div>
                                         </div>
                                     </div>
@@ -190,13 +190,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombres</label>
-                                                <input type="text" class="form-control" asp-for="nomacomp">
+                                                <input type="text" class="form-control" asp-for="nomacomp" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellidos</label>
-                                                <input type="text" class="form-control" asp-for="apellacomp">
+                                                <input type="text" class="form-control" asp-for="apellacomp" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}+" oninvalid="setCustomValidity('Solo ingresar letras ')" required>
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                         <div class="col-md-7">
                                             <div class="form-group">
 
-                                                <input type="date" class="form-control" asp-for="fecnacacomp">
+                                                <input type="date" class="form-control" asp-for="fecnacacomp" id="fecn" oninvalid="setCustomValidity('Debes ser mayor de edad')" required>
                                             </div>
                                         </div>
 

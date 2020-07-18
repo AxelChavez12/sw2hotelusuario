@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Imágenes\\HotelLuzyLuna\\web_admin\\web_admin.csproj": {}
+    "C:\\Users\\Dell\\Desktop\\PROY\\HotelLuzyLuna\\web_admin\\web_admin.csproj": {}
   },
   "projects": {
-    "D:\\Imágenes\\HotelLuzyLuna\\web_admin\\web_admin.csproj": {
+    "C:\\Users\\Dell\\Desktop\\PROY\\HotelLuzyLuna\\web_admin\\web_admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Imágenes\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\PROY\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
         "projectName": "web_admin",
-        "projectPath": "D:\\Imágenes\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Imágenes\\HotelLuzyLuna\\web_admin\\obj\\",
+        "projectPath": "C:\\Users\\Dell\\Desktop\\PROY\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell\\Desktop\\PROY\\HotelLuzyLuna\\web_admin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

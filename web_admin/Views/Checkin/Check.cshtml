@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="columna col-lg-7">
                         <div class="widget nueva_entrada">
-                            <h3 class="titulo">Centro Check-In - Luz y Luna</h3>
+                            <h3 class="titulo">Centro Check-In habitación   n° @ViewBag.hab</h3>
 
 
 
@@ -149,12 +149,12 @@
                     </div>
 
                 </div>
-<form method="POST" asp-controller="Checkin" asp-action="Registrar">
+
                 <div class="row mb-5">
 
 
                     <div class="columna col-lg-6">
-
+<form method="POST" asp-controller="Checkin" asp-action="Registrar">
                         <div class="card">
                             <div class="card-header">
                                 Datos Acompañante
@@ -219,12 +219,19 @@
 
                                     </div>
                                 
-
-
+<div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+                    <button class="btn btn-primary">Agregar acompañante y realizar reserva</button>
+        </div>
+        <div class="col-md-1">
+        </div>
+</div>
 
                             </div>
                         </div>
-
+</form>
                     </div>
 
 
@@ -239,11 +246,11 @@
                         <a asp-controller="Checkin" asp-action="Index"><button class="btn btn-primary">Atras</button></a>
                     </div>
                     <div class="columna col-lg-6">
-                        <button class="btn btn-primary">Realizar Reserva</button>
+                        <a asp-controller="Checkin" asp-action="Reservar" asp-route-numhab="@ViewBag.hab"><button class="btn btn-primary">Realizar Reserva</button></a>
                     </div>
 
 
                 </div>
 
-</form>
+
             </main>

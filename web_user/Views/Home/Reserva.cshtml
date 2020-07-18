@@ -1,10 +1,10 @@
 @model Reserva
 <style>
-    input:invalid {
+    input[type=text],input[type=number],input[type=date]:invalid  {
   border: 2px solid #FACBAA;
 }
-input:valid {
-  background-color: #DEFFC2;
+input[type=text],input[type=number],input[type=date]:valid {
+  border: 2px solid #DEFFC2;
 }
 </style>
 <script languaje="javascript">
@@ -529,7 +529,7 @@ function habilitaDeshabilita(esto)
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" id="respuesta" asp-for="habitaciones" pattern=".{3,7}" required>
+                               
                                 <input type="hidden" value="@ViewBag.checkin" asp-for="checkin">
                                 <input type="hidden" value="@ViewBag.checkout" asp-for="checkout">
                                 <label>Nombres</label>
@@ -574,6 +574,8 @@ function habilitaDeshabilita(esto)
                                     <option value="Salud/atención medica">Salud/atención medica</option>
                                     <option value="Trabajo">Trabajo</option>
                                 </select>
+                                <br>
+                                 Habitaciones seleccionadas<input  type="text" id="respuesta" asp-for="habitaciones" pattern=".{3,7}" oninvalid="alert('Debe elegir entre una a dos habitaciones');" required>
                             </div>
                         </div>
                     <br>

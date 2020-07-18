@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qVeC0xZnP2yosMmQ0gxpKtVDo1NjIPVssRoRx+UWKwMZwxOgAFAmygqbzgbnr1Y007atJDlqq52gG6T/bjRUfg==",
+  "dgSpecHash": "U+o00ULEqjADthOI2zbnvO4+RZEnAzSuE02IxZM11eZ63aLg4SbcA5LgUCZCJ9K7d/LVrhehG0oZg/GX4DVp7A==",
   "success": true,
-  "projectFilePath": "D:\\Imágenes\\HotelLuzyLuna\\web_user\\web_user.csproj",
+  "projectFilePath": "D:\\Imágenes\\hotel\\HotelLuzyLuna\\web_user\\web_user.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\npgsql\\4.1.3.1\\npgsql.4.1.3.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"

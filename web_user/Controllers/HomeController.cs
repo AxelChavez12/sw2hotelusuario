@@ -113,19 +113,13 @@ namespace hotel.Controllers
                 conn.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand(String.Format("Insert into cliente values((select coalesce(max(codcliente)+1,1) from cliente),'{0}','{1}','{2}','{3}','{4}','{5}',null,null,'{6}','{7}','{8}')",r.tipodoc,apepat,r.nom,motiv,r.fecha,r.correo,apemat,r.telefono,r.numdoc),conn);
                     var row = cmd.ExecuteNonQuery();
-                conn.Close();
-
-                conn.Open();
+               
                 NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("insert into reservahabitacion values((select coalesce(max(codreserva)+1,1) from reservahabitacion),CURRENT_DATE,'{0}','{1}','Deposito',(select max(codcliente) from cliente),0)",r.checkin,r.checkout),conn);
                     var row2 = cmd2.ExecuteNonQuery();
-                conn.Close();
-
-                conn.Open();
+                
                 NpgsqlCommand cmd3 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Reservado')",hab1),conn);
                     var row3 = cmd3.ExecuteNonQuery();
-                conn.Close();
-
-                conn.Open();
+               
                 NpgsqlCommand cmd5 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Reservado' where numhab='{0}'",hab1),conn);
                     var row5 = cmd5.ExecuteNonQuery();
                 conn.Close();
@@ -134,9 +128,7 @@ namespace hotel.Controllers
                     conn.Open();
                 NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Pendiente')",hab2),conn);
                     var row4 = cmd4.ExecuteNonQuery();
-                conn.Close();
-
-                conn.Open();
+               
                 NpgsqlCommand cmd6 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Pendiente' where numhab='{0}'",hab2),conn);
                     var row6 = cmd6.ExecuteNonQuery();
                 conn.Close();

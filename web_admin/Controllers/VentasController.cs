@@ -27,7 +27,8 @@ namespace web_admin.Controllers
                 hab.tipo=dr.GetValue(1).ToString();
                 habs.Add(hab);
             }
-            
+            dr.Close();
+            conn.Close();
             List<Hab> habs1= new List<Hab>();
             List<Hab> habs2= new List<Hab>();
             List<Hab> habs3= new List<Hab>();
@@ -162,7 +163,7 @@ namespace web_admin.Controllers
                 }
                 ViewBag.monto=monto;
             dr2.Close();
-
+            conn.Close();
             return View();
         }
 
@@ -174,7 +175,7 @@ namespace web_admin.Controllers
             NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("delete from detalleventa where iddetventa={0}",id),conn);
             var row2 =cm2.ExecuteNonQuery();
 
-
+            conn.Close();
             return RedirectToAction("Registrar");
 
         }

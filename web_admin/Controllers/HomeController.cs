@@ -93,6 +93,7 @@ namespace web_admin.Controllers
             }
             
             ViewBag.Hab=habs;
+            conn.Close();
             return View();
         }       
 

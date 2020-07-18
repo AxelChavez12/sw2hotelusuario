@@ -41,6 +41,7 @@ namespace web_admin.Controllers
             List<Hab> habs3= new List<Hab>();
             List<Hab> habs4= new List<Hab>();
 
+            conn.Close();
             foreach(var item in habs){
                 if(item.numhab<300){
                     habs1.Add(item);
@@ -84,7 +85,7 @@ namespace web_admin.Controllers
                 p.Add(pago);
             }
             dr.Close();
-        
+            conn.Close();
             ViewBag.Pago= p;
             return View();
         }

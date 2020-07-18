@@ -118,7 +118,6 @@
                                                         <th>Fecha de operación</th>
                                                         <th>Número operación</th>
                                                         <th>Referencia</th>
-                                                        <th>Habitación</th>
                                                         <th>Monto</th>
                                                     </tr>
                                                 </thead>
@@ -131,7 +130,6 @@
                                                         <td>@item.fecope</td>
                                                         <td>@item.numope</td>
                                                         <td>@item.refe</td>
-                                                        <td>@item.hab</td>
                                                         <td>@item.monto</td>
                                                     </tr>
                                                     }
@@ -238,7 +236,7 @@
 
                     </div>
                     <div class="columna col-lg-2">
-                        <button href="#" class="btn btn-primary">Atras</button>
+                        <a asp-controller="Checkin" asp-action="Index"><button class="btn btn-primary">Atras</button></a>
                     </div>
                     <div class="columna col-lg-6">
                         <button class="btn btn-primary">Realizar Reserva</button>

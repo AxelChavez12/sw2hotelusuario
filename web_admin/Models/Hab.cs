@@ -6,5 +6,6 @@ namespace web_admin.Models
         public string estado { get; set; }
 
         public string tipo{get;set;}
+        public string codcli { get; set; }
     }
 }

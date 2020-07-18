@@ -18,7 +18,7 @@ namespace web_admin.Controllers
         public IActionResult Index(){
             List<Hab> habs= new List<Hab>();
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab, h.estado FROM  tipohabitacion t, habitacion ha ,reservahab h, reservahabitacion r  where ha.numhab=h.numhab and  ha.tiphabcod=t.codtiphab and h.codreserva=r.codreserva and current_date=r.checkin",conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(" SELECT h.numhab,t.nomtiphab, h.estado, c.numerodoccli FROM  tipohabitacion t, habitacion ha ,reservahab h, reservahabitacion r , cliente c where ha.numhab=h.numhab and  ha.tiphabcod=t.codtiphab and h.codreserva=r.codreserva and r.clientecod=c.codcliente and current_date=r.checkin",conn);
             
                 NpgsqlDataReader dr = cmd.ExecuteReader();
             while(dr.Read()){
@@ -26,9 +26,16 @@ namespace web_admin.Controllers
                 hab.numhab=dr.GetInt32(0);
                 hab.tipo=dr.GetValue(1).ToString();
                 hab.estado=dr.GetValue(2).ToString();
+                hab.codcli=dr.GetValue(3).ToString();
                 habs.Add(hab);
             }
-            
+            List<Hab> habb=new List<Hab>();
+            foreach( var item in habs){
+                if(item.estado.Equals("Reservado")){
+                    habb.Add(item);
+                }
+            }
+            ViewBag.Habb=habb;
             List<Hab> habs1= new List<Hab>();
             List<Hab> habs2= new List<Hab>();
             List<Hab> habs3= new List<Hab>();

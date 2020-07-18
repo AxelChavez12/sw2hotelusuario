@@ -1,6 +1,62 @@
+  
+<style>
+    .contenedorHabi a{
+    text-decoration: none;
+    color: #1C1C1C;
+}
+    .contenedorHabi span{
+    padding-left:40px;
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.cardhab{
+    border: 1px solid #CDCDCD;
+    margin: 10px ;
+}
+.imagenhab{
+    background-color:   #f1f1f1;
+    margin: 10px;
+    text-align: center;
+}
+
+.imagenhab label{
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.imagenhab p{
+    font-size: 20px;
+    text-align: center;
+}
+.estadohab{
+
+    color: #dfdfdf;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+
+</style>
   <main class="main col">
 
+ <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
 
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
                 <div class="row">
 
                     <div class="columna ">
@@ -31,7 +87,7 @@
                                         <div class="row">
                                             <div class="columna col-lg-6">
                                                 <div class="widget nueva_entrada mt-4">
-                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
+                                                    <h3 class="titulo"></h3>
 
                                                 </div>
 
@@ -110,7 +166,7 @@
                                         <div class="row">
                                             <div class="columna col-lg-6">
                                                 <div class="widget nueva_entrada mt-4">
-                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
+                                                    <h3 class="titulo"></h3>
 
                                                 </div>
 
@@ -190,7 +246,7 @@
                                         <div class="row">
                                             <div class="columna col-lg-6">
                                                 <div class="widget nueva_entrada mt-4">
-                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
+                                                    <h3 class="titulo"></h3>
 
                                                 </div>
 
@@ -267,7 +323,7 @@
                                         <div class="row">
                                             <div class="columna col-lg-6">
                                                 <div class="widget nueva_entrada mt-4">
-                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
+                                                    <h3 class="titulo"></h3>
 
                                                 </div>
 
@@ -344,54 +400,80 @@
 
 
 
-                                        <div class="row">
-                                            <div class="columna col-lg-6">
-                                                <div class="widget nueva_entrada mt-4">
-                                                    <h3 class="titulo">Centro de Ventas - Luz y Luna</h3>
-
-                                                </div>
-
-                                                <div class="columna col-lg-7">
-
-                                                </div>
-                                            </div>
-
-
-
-                                        </div>
+                                       
                                         <div class="row mb-3">
 
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            </p>
+                                            
                                         </div>
-
+<br>
+<br>
                                         <div class="row">
                                             <div class="columna col-lg-6">
-                                                <label for="nombre">Buscar Por DNI</label>
-                                                <input type="text" class="form-control" placeholder="Ingrese su Numero de DNI" name="buscardni" id="buscardni">
+                                                
+                                                <input id="search" type="text" class="form-control" placeholder="Ingrese su Número de DNI" name="buscardni" >
                                             </div>
                                             <div class="columna col-lg-6">
                                                 <button class="btn btn-primary">Buscar DNI</button>
                                             </div>
+</div>
+ <div class="contenedorHabi">
+<div class="row">
+                @foreach (var item in (List<Hab>)ViewBag.Habb)
+                                            {
+
+                                            
+                        <div class="col-md-4 " >
+                              <span> 
+                            <a asp-controller="Home" asp-action="Check" asp-route-num="@item.numhab">
+                                
+                            <div class="cardhab">
+                                
+                                <div class="imagenhab">
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>@item.numhab</label>
+                                            <br>@item.codcli
+                                        </div>
+                                        <div class="col-md-7">
+                                            <img src="~/img/cama.jpeg" height="100px" width="100px">
+                                        </div>
+                                        
+                                            @if(item.tipo.Equals("Matrimonial")){
+                                            <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            <br>
+                                            }else{
+                                                <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            }
+                                        
+                                    </div>
+                                    
+                                </div>
+                            
+
+                            </div>
+                            
+                            </a></span>
+                        </div>
+
+
+
+                                            
+
+                                    
+                                            }
+                                            
+                                            
+
+
+                                        </div>
+</div>
                                         </div>
 
-                                        <div class="row mt-4">
-                                            <div class="columna col-lg-6">
-                                                <p>Buscar Por Tipo de Habitacion</p>
-
-
-                                                <select name="" id="" class="custom-select mb-3">
-                                                    <option value="1" selected>Habitación1</option>
-                                                    <option value="2">Habitación2</option>
-                                                    <option value="3">Habitación3</option>
-                                                    <option value="4">Habitación4</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="columna col-lg-6">
-
-                                            </div>
-                                        </div>
 
 
                                     </div>
@@ -402,5 +484,20 @@
 
                 </div>
 
+<script type="text/javascript">
+	var search = document.getElementById("search"),
+    food = document.getElementsByTagName("span"),
+    forEach = Array.prototype.forEach;
 
+search.addEventListener("keyup", function(e){
+    var choice = this.value;
+  
+    forEach.call(food, function(f){
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+            f.parentNode.style.display = "none";        
+        else
+            f.parentNode.style.display = "block";        
+    });
+}, false);
+</script>
             </main>

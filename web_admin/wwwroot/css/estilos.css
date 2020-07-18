@@ -8,12 +8,13 @@ body {
 /* --- --- BARRA LATERAL --- --- */
 
 .barra-lateral {
-    background: #262a34;
+    background: #2C5545;
     color: #fff;
     min-width: 300px;
     min-height: 100vh;
     padding: 0;
 }
+
 
 .barra-lateral a {
     color: #fff;

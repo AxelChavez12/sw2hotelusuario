@@ -96,7 +96,7 @@ namespace web_admin.Controllers
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(String.Format("insert into acompañante values ((select coalesce(max(codacompañante)+1,1) from acompañante),'{0}', '{1}', '{2}', (select codcliente from cliente where numerodoccli='{3}'),'{4}')",a.tipdoccodacomp, a.apellacomp, a.nomacomp,a.clinumdoacomp,a.numdocacomp), conn);
             var row = cmd.ExecuteNonQuery();
-             NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",a.numhab), conn);
+             NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}' and codreserva=(select r.codreserva from reservahabitacion r, reservahab rh where r.codreserva=rh.codreserva and rh.numhab='{0}'and current_date between r.checkin and r.checkout ) ",a.numhab), conn);
             var row2 = cmd2.ExecuteNonQuery();
             int num=a.numhab;
 
@@ -106,7 +106,7 @@ namespace web_admin.Controllers
         }
         public IActionResult Reservar(int numhab){
             conn.Open();
-            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}'",numhab), conn);
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("update reservahab set estado='Ocupado' where numhab='{0}' and codreserva=(select r.codreserva from reservahabitacion r, reservahab rh where r.codreserva=rh.codreserva and rh.numhab='{0}'and current_date between r.checkin and r.checkout ) ",numhab), conn);
             var row2 = cmd2.ExecuteNonQuery();
             conn.Close();
             return RedirectToAction("Index");

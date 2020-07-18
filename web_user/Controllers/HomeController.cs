@@ -126,10 +126,10 @@ namespace hotel.Controllers
 
                 if(l>0){
                     conn.Open();
-                NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Pendiente')",hab2),conn);
+                NpgsqlCommand cmd4 = new NpgsqlCommand(String.Format("insert into reservahab values((select max(codreserva) from reservahabitacion),{0},'Reservado')",hab2),conn);
                     var row4 = cmd4.ExecuteNonQuery();
                
-                NpgsqlCommand cmd6 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Pendiente' where numhab='{0}'",hab2),conn);
+                NpgsqlCommand cmd6 = new NpgsqlCommand(String.Format(" update habitacion set estadohab='Reservado' where numhab='{0}'",hab2),conn);
                     var row6 = cmd6.ExecuteNonQuery();
                 conn.Close();
                 }

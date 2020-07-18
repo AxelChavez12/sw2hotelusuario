@@ -157,8 +157,8 @@
                                 <td>@item.cantidad</td>
                                 <td>@item.precio</td>
                                 <td>@item.subtotal</td>
-                                <td> <a href="#"><i class="icon-edit"></i></a></td>
-                                <td> <a href="#"><i class="icon-logout"></i></a></td>
+                                <td> <a asp-controller="Ventas" asp-action="Eliminar" asp-route-id="@item.iddetve"><i class="icon-logout"></i></a></td>
+                                
                             </tr>    
                             }
                             

@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Hotel Luz y luna</title>
-
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Luz y Luna</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min2.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 
@@ -20,38 +20,62 @@
 
 <script  src="~/js/script.js"></script>
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="~/css/fontello2.css">
+    <link rel="stylesheet" href="~/css/estilosusuario.css">
 <link rel="stylesheet" href="~/css/estilo.css">
-<style>
-
-</style>
 </head>
+
 <body>
+    <header>
+        <div>
+            <!-- Logo + Menu -->
+            <div class="nav row rounded-top align-items-strech justify-content-between">
+                <!-- Logotipo -->
+                <div id="header" class="col-md-12 col-lg logo d-flex align-items-center justify-content-center justify-content-lg-start">
+                    <h2>Hotel Luz y Luna</h2>
+                    
+                    <p>Lima Peru</p>
+                </div>
 
-  <div class="navbarWeb">
-    <nav class="navbar navbar-expand-md navbar-light ">
-        <a href="#" class="navbar-brand"><img src="img/logo2.png" height="28" alt="CoolBrand"></a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            
-            <div class="navbar-nav ml-auto">
-                
-                <a href="#" class="nav-item nav-link active">Inicio</a>
-                <a href="#" class="nav-item nav-link">Habitaciones</a>
-                <a href="#" class="nav-item nav-link">Restaurante</a>
-                <a href="#" class="nav-item nav-link">Contactanos</a>
+                <!-- Menu -->
+                <nav id="menu" class="col-md-12 col-lg-auto menu d-flex align-items-stretch flex-wrap flex-sm-nowrap">
+                    <a href="#" class="c-1 d-flex align-items-center uno">
+                        <div class="d-flex flex-column text-center">
+                            <span>Inicio</span>
+                            <i class="icono icon-briefcase uno"></i>
+                        </div>
+                    </a>
+                    <a href="#habitaciones" class="c-2 d-flex align-items-center dos">
+                        <div class="d-flex flex-column text-center dos">
+                            <span>Habitaciones</span>
+                            <i class="icono icon-user"></i>
+                        </div>
+                    </a>
+                    <a href="#contacto" class="c-3 d-flex align-items-center tres">
+                        <div class="d-flex flex-column text-center tres">
+                            <span>Contacto</span>
+                            <i class="icono icon-mail"></i>
+                        </div>
+                    </a>
+                </nav>
             </div>
-        </div>
-    </nav>
-</div>
 
-    <div>
+            
+        </div>
+    </header>
+
+   <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+
+    <script src="~/js/jquery-3.3.1.min2.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min2.js"></script>
+    <script src="~/js/scriptsusuario.js"></script>
 </body>
+
 </html>

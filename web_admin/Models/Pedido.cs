@@ -11,6 +11,7 @@ namespace web_admin.Models
         public string nombre{get;set;}
         public double precio{get;set;}
         public double subtotal{get;set;}
-                                  
+        
+        public int iddetve { get; set; }
     }
 }

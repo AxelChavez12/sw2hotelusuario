@@ -128,7 +128,7 @@ namespace web_admin.Controllers
             dr.Close();
             ViewBag.Prod=prods;
             
-            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum from detalleventa d, producto p, ventas v where d.productocod=p.codproducto and v.codventa=d.ventascod  and d.ventascod=(select max( v.codventa) from ventas v)",conn);
+            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum,, d.iddetventa  from detalleventa d, producto p, ventas v where d.productocod=p.codproducto and v.codventa=d.ventascod  and d.ventascod=(select max( v.codventa) from ventas v)",conn);
             NpgsqlDataReader dr2=command.ExecuteReader();
             while(dr2.Read()){
                 Pedido pe= new Pedido();
@@ -138,6 +138,7 @@ namespace web_admin.Controllers
                 pe.precio=dr.GetDouble(3);
                 pe.subtotal=dr.GetDouble(4);
                 codd=dr.GetInt32(5);
+                pe.iddetve=dr.GetInt32(6);
                 pds.Add(pe);
             }
             dr2.Close();
@@ -165,7 +166,23 @@ namespace web_admin.Controllers
             return View();
         }
 
+        public IActionResult Eliminar(int id){
+
+            conn.Open();
+            NpgsqlCommand cmd= new NpgsqlCommand(String.Format("update ventas set total=(select total from ventas where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} ))-(select d.subtotal from detalleventa d where d.iddetventa={0}) where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} )",id),conn);
+            var row = cmd.ExecuteNonQuery();
+            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("delete from detalleventa where iddetventa={0}",id),conn);
+            var row2 =cm2.ExecuteNonQuery();
+
+
+            return RedirectToAction("Registrar");
+
+        }
         
+        public IActionResult Detalle(){
+
+            return View();
+        }
     
     }
 }

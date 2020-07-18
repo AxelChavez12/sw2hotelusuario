@@ -123,3 +123,4 @@ D:\Imágenes\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\staticwebassets\web
 D:\Imágenes\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.dll
 D:\Imágenes\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.pdb
 D:\Imágenes\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\web_admin.genruntimeconfig.cache
+D:\Imágenes\HotelLuzyLuna\web_admin\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Detalle.cshtml.g.cs

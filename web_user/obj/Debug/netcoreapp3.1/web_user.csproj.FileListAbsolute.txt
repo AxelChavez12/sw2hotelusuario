@@ -158,3 +158,4 @@ D:\Imágenes\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\staticwebassets\web_
 D:\Imágenes\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.dll
 D:\Imágenes\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.pdb
 D:\Imágenes\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\web_user.genruntimeconfig.cache
+D:\Imágenes\HotelLuzyLuna\web_user\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_layout2.cshtml.g.cs

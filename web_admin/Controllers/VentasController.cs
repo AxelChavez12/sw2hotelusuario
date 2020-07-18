@@ -128,7 +128,7 @@ namespace web_admin.Controllers
             dr.Close();
             ViewBag.Prod=prods;
             
-            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum,, d.iddetventa  from detalleventa d, producto p, ventas v where d.productocod=p.codproducto and v.codventa=d.ventascod  and d.ventascod=(select max( v.codventa) from ventas v)",conn);
+            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum, d.iddetventa  from detalleventa d, producto p, ventas v where d.productocod=p.codproducto and v.codventa=d.ventascod  and d.ventascod=(select max( v.codventa) from ventas v)",conn);
             NpgsqlDataReader dr2=command.ExecuteReader();
             while(dr2.Read()){
                 Pedido pe= new Pedido();
@@ -178,9 +178,29 @@ namespace web_admin.Controllers
             return RedirectToAction("Registrar");
 
         }
-        
+
         public IActionResult Detalle(){
 
+            List<Pedido> p = new List<Pedido>();
+            conn.Open();
+            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum, concat(c.nomcli,' ',c.apellpater,' ',c.apemater), v.total from detalleventa d, producto p, ventas v , cliente c where d.productocod=p.codproducto and v.codventa=d.ventascod and v.clientecod=c.codcliente  and d.ventascod=(select max(v.codventa) from ventas v)",conn);
+            NpgsqlDataReader data = command.ExecuteReader();
+            while(data.Read()){
+                Pedido pe= new Pedido();
+                pe.tipo=data.GetValue(0).ToString();
+                pe.nombre=data.GetValue(1).ToString();
+                pe.cantidad=data.GetInt32(2);
+                pe.precio=data.GetDouble(3);
+                pe.subtotal=data.GetDouble(4);
+                ViewBag.num=data.GetInt32(5);
+                ViewBag.nombre=data.GetValue(6).ToString();
+                ViewBag.total=data.GetDouble(7);
+                p.Add(pe);
+
+            }
+            conn.Close();
+
+            ViewBag.peds=p;
             return View();
         }
     

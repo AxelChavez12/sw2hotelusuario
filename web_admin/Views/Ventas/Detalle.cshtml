@@ -1,0 +1,63 @@
+<main class="main col">
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <br>
+
+            <h3>Se ha registrado el pedido de @ViewBag.nombre en la habitación @ViewBag.num </h3>        
+        <br>
+
+        </div>
+
+        <table class="table table-responsive" style="margin-left: 30px;" >
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Monto</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in (List<Pedido>)ViewBag.peds){
+        <tr>
+            <td>@item.nombre</td>
+            <td>@item.tipo</td>
+            <td>@item.cantidad</td>
+            <td>@item.precio</td>
+            <td> @item.subtotal</td>
+
+        </tr>
+        }
+    
+        <tr>
+            <td>Monto a pagar </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        
+            <td><label> @ViewBag.total</label></td>
+        
+        </tr>
+
+    </tbody>
+</table>
+
+    </div>
+    <div class="row">
+                                <div class="col-md-5">
+                                
+                                </div>
+                                <div class="col-md-4">
+                                    <a asp-controller="Ventas" asp-action="Index"><button class="btn btn-primary" >OK</button></a>
+
+                                </div>
+                                <div class="col-md-3">
+                                
+                                </div>
+                            </div>
+</main>

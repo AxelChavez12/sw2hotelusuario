@@ -1,9 +1,9 @@
 @model Reserva
 <style>
-    input[type=text],input[type=number],input[type=date]:invalid  {
+    input:invalid  {
   border: 2px solid #FACBAA;
 }
-input[type=text],input[type=number],input[type=date]:valid {
+input:valid {
   border: 2px solid #DEFFC2;
 }
 </style>
@@ -20,7 +20,6 @@ function habilitaDeshabilita(esto)
       
 	} else {
 		numcheckbox++;
-	}
 } else {
 	numcheckbox--;
 }
@@ -55,6 +54,7 @@ function habilitaDeshabilita(esto)
                 <br>
                 <input type="submit"   value="Buscar habitación">
             </div>
+	}
         </div>
     </div>
     </form>
@@ -518,7 +518,7 @@ function habilitaDeshabilita(esto)
                         <div class="col-md-6">
                             <div class="form-group">
                                 
-                                <input type="text" class="form-control" asp-for="numdoc"min="7" max="11" required>
+                                <input type="text" class="form-control" asp-for="numdoc"  pattern="[0-9]{7,11}"  required>
                             </div>
                         </div>
                     </div>

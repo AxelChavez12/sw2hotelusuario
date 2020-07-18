@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
+  "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\web_admin.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,68 +20521,68 @@
   "RootNamespace": "web_admin",
   "Documents": [
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Detalle.cshtml",
-      "TargetPath": "Views\\Ventas\\Detalle.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Index.cshtml",
-      "TargetPath": "Views\\Ventas\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Registrar.cshtml",
-      "TargetPath": "Views\\Ventas\\Registrar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Home\\Habitaciones.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Home\\Habitaciones.cshtml",
       "TargetPath": "Views\\Home\\Habitaciones.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Checkin\\Index.cshtml",
-      "TargetPath": "Views\\Checkin\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\_ViewStart.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\_ViewImports.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Index.cshtml",
+      "TargetPath": "Views\\Ventas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Registrar.cshtml",
+      "TargetPath": "Views\\Ventas\\Registrar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Checkin\\Check.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Checkin\\Check.cshtml",
       "TargetPath": "Views\\Checkin\\Check.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Home\\Ventas.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Home\\Ventas.cshtml",
       "TargetPath": "Views\\Home\\Ventas.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Ventas\\Detalle.cshtml",
+      "TargetPath": "Views\\Ventas\\Detalle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Imágenes\\HotelLuzyLuna\\web_admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Escritorio\\HotelLuzyLuna\\web_admin\\Views\\Checkin\\Index.cshtml",
+      "TargetPath": "Views\\Checkin\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

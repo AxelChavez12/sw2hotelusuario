@@ -88,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Imágenes\\hotel\\HotelLuzyLuna\\web_user\\web_user.csproj",
+      "projectUniqueName": "D:\\Escritorio\\HotelLuzyLuna\\web_user\\web_user.csproj",
       "projectName": "web_user",
-      "projectPath": "D:\\Imágenes\\hotel\\HotelLuzyLuna\\web_user\\web_user.csproj",
+      "projectPath": "D:\\Escritorio\\HotelLuzyLuna\\web_user\\web_user.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Imágenes\\hotel\\HotelLuzyLuna\\web_user\\obj\\",
+      "outputPath": "D:\\Escritorio\\HotelLuzyLuna\\web_user\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "a1d6DwzsRi3rnwGLqAjGEdjmKc/iWDKD0n4rEbJOHU34o0u7xHKJubgzDEsVlYNfpB3TXrOuflQZr6okv7w/ow==",
+  "dgSpecHash": "qVeC0xZnP2yosMmQ0gxpKtVDo1NjIPVssRoRx+UWKwMZwxOgAFAmygqbzgbnr1Y007atJDlqq52gG6T/bjRUfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\proy\\HotelLuzyLuna\\web_user\\web_user.csproj",
+  "projectFilePath": "D:\\Imágenes\\HotelLuzyLuna\\web_user\\web_user.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Dell\\.nuget\\packages\\npgsql\\4.1.3.1\\npgsql.4.1.3.1.nupkg.sha512",
-    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    "C:\\Users\\Usuario\\.nuget\\packages\\npgsql\\4.1.3.1\\npgsql.4.1.3.1.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }

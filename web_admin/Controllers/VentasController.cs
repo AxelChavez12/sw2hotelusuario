@@ -56,8 +56,10 @@ namespace web_admin.Controllers
 
         public IActionResult Registrar(int id){
 
-        
+            List<Pedido> pds= new List<Pedido>();
+            int codd=0;
             int cliente=0;
+            double monto=0;
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select codproducto, tipoprod, nomproducto, precventa,stock from producto",conn);
             
@@ -73,7 +75,7 @@ namespace web_admin.Controllers
             }
             dr.Close();
             ViewBag.Prod=prods;
-
+        if(id!=0){
             NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select rh.numhab,concat(c.nomcli,' ',c.apellpater,' ',c.apemater),to_char(current_timestamp ,'HH24:MI'),c.codcliente  from reservahab rh,reservahabitacion r, cliente c where c.codcliente=r.clientecod and rh.codreserva=r.codreserva and rh.numhab='{0}' and current_date between r.checkin and r.checkout",id),conn);
             
                 NpgsqlDataReader dr2 = cmd2.ExecuteReader();
@@ -85,25 +87,50 @@ namespace web_admin.Controllers
                     ViewBag.cli=cliente;
                 }
             dr2.Close();
-
+        
             Random r = new Random();
             int num=r.Next(100001,999999);
             NpgsqlCommand cmd3= new NpgsqlCommand(String.Format(" insert into ventas values((select coalesce(max(codventa)+1,1) from ventas),'{0}',0,{1},1,{2},current_date )",num,cliente,id),conn);
             var row=cmd3.ExecuteNonQuery();
             conn.Close();
+        }else{
+            NpgsqlCommand command= new NpgsqlCommand("select p.tipoprod, p.nomproducto, d.cantidad ,p.precventa, d.cantidad*p.precventa, v.habnum, d.iddetventa  from detalleventa d, producto p, ventas v where d.productocod=p.codproducto and v.codventa=d.ventascod  and d.ventascod=(select max( v.codventa) from ventas v)",conn);
+            NpgsqlDataReader dr2=command.ExecuteReader();
+            while(dr2.Read()){
+                Pedido pe= new Pedido();
+                pe.tipo=dr2.GetValue(0).ToString();
+                pe.nombre=dr2.GetValue(1).ToString();
+                pe.cantidad=dr2.GetInt32(2);
+                pe.precio=dr2.GetDouble(3);
+                pe.subtotal=dr2.GetDouble(4);
+                codd=dr2.GetInt32(5);
+                pe.iddetve=dr2.GetInt32(6);
+                pds.Add(pe);
+            }
+            dr2.Close();
+            foreach(var item in pds){
+                monto=monto+item.subtotal;
+            }
+            ViewBag.Pedido=pds;
 
+           
+            NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select rh.numhab,concat(c.nomcli,' ',c.apellpater,' ',c.apemater),to_char(current_timestamp ,'HH24:MI'),c.codcliente  from reservahab rh,reservahabitacion r, cliente c where c.codcliente=r.clientecod and rh.codreserva=r.codreserva and rh.numhab='{0}' and current_date between r.checkin and r.checkout",codd),conn);
+            
+                NpgsqlDataReader dr3 = cmd2.ExecuteReader();
+                if(dr3.Read()){
+                    ViewBag.num=dr3.GetInt32(0);
+                    ViewBag.nom=dr3.GetValue(1).ToString();
+                    ViewBag.hora=dr3.GetValue(2).ToString();
+                    ViewBag.cli=dr3.GetInt32(3);
+                
+                }
+                ViewBag.monto=monto;
+            dr2.Close();
+        }
             return View();
         }
 
-        public IActionResult RegistrarProducto(Pedido p){
-
-            conn.Open();
-             
-            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("insert into detalleventa values((select coalesce(max(iddetventa)+1,1) from detalleventa),{0} ,'compra',(select precventa from producto where codproducto=1)*{0},(select max(codventa) from ventas),{1} )",p.cantidad,p.idprod),conn);
-            var row2 =cm2.ExecuteNonQuery();
-            conn.Close();
-            return RedirectToAction("Registrar");
-        }
+     
 
 
 [HttpPost]
@@ -112,7 +139,7 @@ namespace web_admin.Controllers
             int codd=0;
             double monto=0;
             conn.Open();
-            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("insert into detalleventa values((select coalesce(max(iddetventa)+1,1) from detalleventa),{0} ,'compra',(select precventa from producto where codproducto=1)*{0},(select max(codventa) from ventas),{1} )",p.cantidad,p.idprod),conn);
+            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("insert into detalleventa values((select coalesce(max(iddetventa)+1,1) from detalleventa),{0} ,'compra',(select precventa from producto where codproducto={1})*{0},(select max(codventa) from ventas),{1} )",p.cantidad,p.idprod),conn);
             var row2 =cm2.ExecuteNonQuery();
             NpgsqlCommand cmd = new NpgsqlCommand("select codproducto, tipoprod, nomproducto, precventa,stock from producto",conn);
             
@@ -133,13 +160,13 @@ namespace web_admin.Controllers
             NpgsqlDataReader dr2=command.ExecuteReader();
             while(dr2.Read()){
                 Pedido pe= new Pedido();
-                pe.tipo=dr.GetValue(0).ToString();
-                pe.nombre=dr.GetValue(1).ToString();
-                pe.cantidad=dr.GetInt32(2);
-                pe.precio=dr.GetDouble(3);
-                pe.subtotal=dr.GetDouble(4);
-                codd=dr.GetInt32(5);
-                pe.iddetve=dr.GetInt32(6);
+                pe.tipo=dr2.GetValue(0).ToString();
+                pe.nombre=dr2.GetValue(1).ToString();
+                pe.cantidad=dr2.GetInt32(2);
+                pe.precio=dr2.GetDouble(3);
+                pe.subtotal=dr2.GetDouble(4);
+                codd=dr2.GetInt32(5);
+                pe.iddetve=dr2.GetInt32(6);
                 pds.Add(pe);
             }
             dr2.Close();
@@ -154,29 +181,29 @@ namespace web_admin.Controllers
             NpgsqlCommand cmd2 = new NpgsqlCommand(String.Format("select rh.numhab,concat(c.nomcli,' ',c.apellpater,' ',c.apemater),to_char(current_timestamp ,'HH24:MI'),c.codcliente  from reservahab rh,reservahabitacion r, cliente c where c.codcliente=r.clientecod and rh.codreserva=r.codreserva and rh.numhab='{0}' and current_date between r.checkin and r.checkout",codd),conn);
             
                 NpgsqlDataReader dr3 = cmd2.ExecuteReader();
-                if(dr2.Read()){
-                    ViewBag.num=dr2.GetInt32(0);
-                    ViewBag.nom=dr2.GetValue(1).ToString();
-                    ViewBag.hora=dr2.GetValue(2).ToString();
-                    ViewBag.cli=dr2.GetInt32(3);
+                if(dr3.Read()){
+                    ViewBag.num=dr3.GetInt32(0);
+                    ViewBag.nom=dr3.GetValue(1).ToString();
+                    ViewBag.hora=dr3.GetValue(2).ToString();
+                    ViewBag.cli=dr3.GetInt32(3);
                 
                 }
                 ViewBag.monto=monto;
-            dr2.Close();
+            dr3.Close();
             conn.Close();
             return View();
         }
 
-        public IActionResult Eliminar(int id){
+        public IActionResult Eliminar(int idd){
 
             conn.Open();
-            NpgsqlCommand cmd= new NpgsqlCommand(String.Format("update ventas set total=(select total from ventas where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} ))-(select d.subtotal from detalleventa d where d.iddetventa={0}) where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} )",id),conn);
+            NpgsqlCommand cmd= new NpgsqlCommand(String.Format("update ventas set total=(select total from ventas where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} ))-(select d.subtotal from detalleventa d where d.iddetventa={0}) where codventa=(select d.ventascod from detalleventa d where d.iddetventa={0} )",idd),conn);
             var row = cmd.ExecuteNonQuery();
-            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("delete from detalleventa where iddetventa={0}",id),conn);
+            NpgsqlCommand cm2 = new NpgsqlCommand(String.Format("delete from detalleventa where iddetventa={0}",idd),conn);
             var row2 =cm2.ExecuteNonQuery();
-
+            int id=0;
             conn.Close();
-            return RedirectToAction("Registrar");
+            return RedirectToAction("Registrar",id);
 
         }
 

@@ -161,7 +161,7 @@
                                     <th>Cantidad</th>
                                     <th>Precio Venta</th>
                                     <th>Sub Total</th>
-                                    <th>Editar</th>
+                            
                                     <th>Eliminar</th>
                                 </tr>
                             </thead>
@@ -174,7 +174,7 @@
                                 <td>@item.cantidad</td>
                                 <td>@item.precio</td>
                                 <td>@item.subtotal</td>
-                                <td> <a asp-controller="Ventas" asp-action="Eliminar" asp-route-id="@item.iddetve"><i class="icon-logout"></i></a></td>
+                                <td> <a asp-controller="Ventas" asp-action="Eliminar" asp-route-idd="@item.iddetve"><i class="icon-logout"></i></a></td>
                                 
                             </tr>    
                             }
